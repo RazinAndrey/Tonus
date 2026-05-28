@@ -1,0 +1,7 @@
+{
+  "name": "tonus",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
