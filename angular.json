@@ -8,8 +8,20 @@
       "schematics": {
         "@ionic/angular-toolkit:page": {
           "styleext": "scss",
-          "standalone": true
-        }
+          "standalone": true,
+          "skipTests": true
+        },
+        "@ionic/angular-toolkit:component": {
+          "styleext": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:component": { "skipTests": true },
+        "@schematics/angular:service": { "skipTests": true },
+        "@schematics/angular:directive": { "skipTests": true },
+        "@schematics/angular:pipe": { "skipTests": true },
+        "@schematics/angular:guard": { "skipTests": true },
+        "@schematics/angular:resolver": { "skipTests": true },
+        "@schematics/angular:interceptor": { "skipTests": true }
       },
       "root": "",
       "sourceRoot": "src",
@@ -75,6 +87,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "host": "127.0.0.1"
+          },
           "configurations": {
             "production": {
               "buildTarget": "app:build:production"
@@ -129,7 +144,10 @@
     }
   },
   "cli": {
-    "schematicCollections": ["@ionic/angular-toolkit"]
+    "schematicCollections": [
+      "@ionic/angular-toolkit"
+    ],
+    "analytics": false
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {
