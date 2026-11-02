@@ -17,10 +17,8 @@ ion-menu ion-content {
 
 #main {
   background: var(--app-panel-background);
+}
 
-  ion-toolbar,
-  ion-content {
-    --background: var(--app-panel-background);
-    --color: var(--app-text-color);
-  }
+.page-header {
+  border-bottom: 1px solid var(--app-divider-color);
 }

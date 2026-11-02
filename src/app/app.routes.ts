@@ -5,25 +5,28 @@ export const routes: Routes = [
     path: '',
     loadComponent: () =>
       import('./shared/layouts/main-layout.component').then((m) => m.MainLayoutComponent),
-    // children: [
-    //   {
-    //     path: 'home',
-    //     loadComponent: () => import('./features/home/home.page').then((m) => m.HomePage),
-    //   },
-    //   {
-    //     path: 'settings',
-    //     loadComponent: () =>
-    //       import('./features/settings/settings.page').then((m) => m.SettingsPage),
-    //   },
-    //   {
-    //     path: '',
-    //     redirectTo: 'home',
-    //     pathMatch: 'full',
-    //   },
-    // ],
+    children: [
+      {
+        path: 'dashboard',
+        title: 'Главная',
+        loadComponent: () =>
+          import('./features/dashboard/dashboard.page').then((m) => m.DashboardPage),
+      },
+      {
+        path: 'settings',
+        title: 'Настройки',
+        loadComponent: () =>
+          import('./features/settings/settings.page').then((m) => m.SettingsPage),
+      },
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full',
+      },
+    ],
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: 'dashboard',
   },
 ];

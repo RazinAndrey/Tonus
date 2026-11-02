@@ -1,15 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
   IonContent,
-  IonHeader,
   IonItem,
   IonToggle,
   IonListHeader,
   IonLabel,
   IonList,
   IonNote,
-  IonTitle,
-  IonToolbar,
 } from '@ionic/angular/standalone';
 
 import { environment } from '../../../environments/environment';
@@ -21,15 +18,12 @@ import { ThemeService } from '../../core/services/theme-service';
   styleUrls: ['settings.page.scss'],
   imports: [
     IonContent,
-    IonHeader,
     IonItem,
     IonToggle,
     IonListHeader,
     IonLabel,
     IonList,
     IonNote,
-    IonTitle,
-    IonToolbar,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
