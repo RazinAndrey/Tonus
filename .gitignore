@@ -15,7 +15,6 @@ log.txt
 
 /.sourcemaps
 /.versions
-/coverage
 
 # Ionic
 /.ionic
@@ -60,9 +59,7 @@ yarn-error.log
 /.nx
 /.nx/cache
 /connect.lock
-/coverage
 /libpeerconnection.log
-testem.log
 /typings
 
 # System files

@@ -7,10 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm start` — dev server at http://localhost:4200 (serves with the `development` config)
 - `npm run build` — production build, output to `www/` (the Capacitor `webDir`)
 - `npm run watch` — rebuild on change using the `development` config
-- `npm test` — run unit tests in Chrome via Karma + Jasmine (watch mode)
 - `npm run lint` — ESLint over `src/**/*.ts` and `src/**/*.html`
-
-Run a single test file by toggling `fdescribe`/`fit` in the `.spec.ts`, or narrow with `npm test -- --include='**/home.page.spec.ts'`. Karma defaults to watch mode; for one-shot CI runs use `ng test --configuration ci` (sets `watch: false`).
 
 ## Architecture
 

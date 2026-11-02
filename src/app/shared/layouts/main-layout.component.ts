@@ -1,20 +1,20 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { IonRouterOutlet } from '@ionic/angular/standalone';
+import {
+  IonContent,
+  IonHeader,
+  IonMenu,
+  IonSplitPane,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/angular/standalone';
 
-import { AppMenuComponent, MenuItem } from '../ui/app-menu.component';
+import { MenuWidgetComponent } from '../widgets/menu/menu-widget.component';
 
 @Component({
   selector: 'app-main-layout',
-  imports: [IonRouterOutlet, AppMenuComponent],
-  template: `
-    <app-menu [items]="menuItems" />
-    <ion-router-outlet id="main-content" />
-  `,
+  imports: [IonSplitPane, IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, MenuWidgetComponent],
+  templateUrl: './main-layout.component.html',
+  styleUrls: ['./main-layout.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MainLayoutComponent {
-  protected menuItems: MenuItem[] = [
-    { label: 'Главная', route: '/home' },
-    { label: 'Настройки', route: '/settings' },
-  ];
-}
+export class MainLayoutComponent {}

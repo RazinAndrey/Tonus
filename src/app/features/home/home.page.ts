@@ -3,14 +3,16 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import {
   IonContent,
+  IonHeader,
   IonItem,
   IonLabel,
   IonList,
   IonNote,
+  IonTitle,
+  IonToolbar,
 } from '@ionic/angular/standalone';
 
 import { WorkoutsApi } from '../../data/workouts/workouts.api';
-import { AppHeaderComponent } from '../../shared/ui/app-header.component';
 
 @Component({
   selector: 'app-home',
@@ -18,12 +20,14 @@ import { AppHeaderComponent } from '../../shared/ui/app-header.component';
   styleUrls: ['home.page.scss'],
   imports: [
     DatePipe,
-    AppHeaderComponent,
     IonContent,
+    IonHeader,
     IonList,
     IonItem,
     IonLabel,
     IonNote,
+    IonTitle,
+    IonToolbar,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
