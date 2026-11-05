@@ -1,6 +1,6 @@
 <ion-list>
   @for (link of links; track link.url) {
-    <ion-item lines="none" [routerLink]="link.url" routerDirection="root">
+    <ion-item lines="none" [routerLink]="link.url" routerDirection="root" routerLinkActive="active">
       <ion-label>{{ link.label }}</ion-label>
     </ion-item>
   }

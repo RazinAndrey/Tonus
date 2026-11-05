@@ -4,7 +4,9 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./shared/layouts/main-layout.component').then((m) => m.MainLayoutComponent),
+      import('./shared/layouts/main-layout/main-layout.component').then(
+        (m) => m.MainLayoutComponent,
+      ),
     children: [
       {
         path: 'dashboard',
@@ -17,6 +19,11 @@ export const routes: Routes = [
         title: 'Настройки',
         loadComponent: () =>
           import('./features/settings/settings.page').then((m) => m.SettingsPage),
+      },
+      {
+        path: 'profile',
+        title: 'Профиль',
+        loadComponent: () => import('./features/profile/profile.page').then((m) => m.ProfilePage),
       },
       {
         path: '',

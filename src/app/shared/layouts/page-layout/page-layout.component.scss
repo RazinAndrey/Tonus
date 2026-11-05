@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+ion-content {
+  --background: var(--app-color-neutral-950);
+  --color: var(--app-color-neutral-0);
+}
+
+@media (min-width: 768px) {
+  ion-content {
+    --padding-start: 24px;
+    --padding-end: 24px;
+  }
+}

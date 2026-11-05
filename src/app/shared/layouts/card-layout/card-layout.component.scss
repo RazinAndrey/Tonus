@@ -1,0 +1,20 @@
+:host {
+  display: block;
+}
+
+ion-card {
+  --background: var(--app-color-neutral-900);
+  --color: var(--app-color-neutral-0);
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  border-radius: 0.5rem;
+}
+
+ion-card-title {
+  --color: var(--app-color-neutral-0);
+}
+
+ion-card-subtitle {
+  --color: var(--app-color-neutral-500);
+}

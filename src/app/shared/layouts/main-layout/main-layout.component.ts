@@ -1,10 +1,16 @@
 import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { distinctUntilChanged, filter, map, of, startWith, switchMap } from 'rxjs';
+import { NavigationEnd, Router, RouterLink, TitleStrategy } from '@angular/router';
+import { distinctUntilChanged, filter, map, startWith } from 'rxjs';
+import { addIcons } from 'ionicons';
+import { trophy } from 'ionicons/icons';
 import {
+  IonAvatar,
+  IonButton,
+  IonRouterLink,
   IonContent,
   IonHeader,
+  IonIcon,
   IonMenu,
   IonRouterOutlet,
   IonSplitPane,
@@ -13,19 +19,24 @@ import {
   IonButtons,
   IonMenuButton,
 } from '@ionic/angular/standalone';
-import { MenuWidgetComponent } from '../widgets/menu/menu-widget.component';
+import { SidebarMenuComponent } from '../../widgets/sidebar-menu/sidebar-menu.component';
 
 @Component({
   selector: 'app-main-layout',
   imports: [
+    IonAvatar,
+    IonButton,
+    IonRouterLink,
+    RouterLink,
     IonSplitPane,
     IonMenu,
     IonHeader,
+    IonIcon,
     IonToolbar,
     IonTitle,
     IonContent,
     IonRouterOutlet,
-    MenuWidgetComponent,
+    SidebarMenuComponent,
     IonButtons,
     IonMenuButton,
     AsyncPipe,
@@ -35,14 +46,17 @@ import { MenuWidgetComponent } from '../widgets/menu/menu-widget.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainLayoutComponent {
+  constructor() {
+    addIcons({ trophy });
+  }
+
   private readonly router = inject(Router);
-  private readonly route = inject(ActivatedRoute);
+  private readonly titleStrategy = inject(TitleStrategy);
 
   readonly pageTitle$ = this.router.events.pipe(
     filter((event) => event instanceof NavigationEnd),
     startWith(null),
-    switchMap(() => this.route.firstChild?.title ?? of(undefined)),
-    map((title) => title ?? ''),
+    map(() => this.titleStrategy.buildTitle(this.router.routerState.snapshot) ?? ''),
     distinctUntilChanged(),
   );
 }

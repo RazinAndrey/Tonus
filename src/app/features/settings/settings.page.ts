@@ -1,38 +1,11 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import {
-  IonContent,
-  IonItem,
-  IonToggle,
-  IonListHeader,
-  IonLabel,
-  IonList,
-  IonNote,
-} from '@ionic/angular/standalone';
-
-import { environment } from '../../../environments/environment';
-import { ThemeService } from '../../core/services/theme-service';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { PageLayoutComponent } from '../../shared/layouts/page-layout/page-layout.component';
 
 @Component({
   selector: 'app-settings',
   templateUrl: 'settings.page.html',
   styleUrls: ['settings.page.scss'],
-  imports: [
-    IonContent,
-    IonItem,
-    IonToggle,
-    IonListHeader,
-    IonLabel,
-    IonList,
-    IonNote,
-  ],
+  imports: [PageLayoutComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SettingsPage {
-  private theme = inject(ThemeService);
-  protected readonly dark = this.theme.dark;
-  protected readonly appVersion = environment.appVersion;
-
-  protected toggleTheme(): void {
-    this.theme.toggle();
-  }
-}
+export class SettingsPage {}

@@ -1,19 +1,5 @@
-<ion-content [fullscreen]="true">
-  @if (workouts(); as list) {
-  <ion-list>
-    @for (w of list; track w.id) {
-    <ion-item>
-      <ion-label>
-        <h2>{{ w.title }}</h2>
-        <p>{{ w.createdAt | date: 'short' }}</p>
-      </ion-label>
-      <ion-note slot="end">{{ w.durationMinutes }} мин</ion-note>
-    </ion-item>
-    } @empty {
-    <ion-item><ion-label>Нет тренировок</ion-label></ion-item>
-    }
-  </ion-list>
-  } @else {
-  <div class="state">Загрузка…</div>
-  }
-</ion-content>
+<app-page-layout>
+  <app-card-layout title="Card Title" subtitle="Card Subtitle">
+    Here's a small text description for the card content. Nothing more, nothing less.
+  </app-card-layout>
+</app-page-layout>

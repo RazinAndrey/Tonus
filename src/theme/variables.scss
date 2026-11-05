@@ -2,9 +2,14 @@
 // https://ionicframework.com/docs/theming/
 
 :root {
-  --app-panel-background: #171821;
-  --app-divider-color: #2c2d33;
-  --app-text-color: #fff;
-  --app-secondary-text-color: #87888c;
-  --app-menu-item-color: #a9dfd8;
+  --app-color-neutral-0: #fff;
+  --app-color-neutral-500: #87888c;
+  --app-color-neutral-800: #2c2d33;
+  --app-color-neutral-900: #21222d;
+  --app-color-neutral-950: #171821;
+
+  --app-color-amber: #feb95a;
+  --app-color-mint: #a9dfd8;
+  --app-color-rose: #f2c8ed;
+  --app-color-sky: #20aef3;
 }

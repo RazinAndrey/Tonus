@@ -1,0 +1,42 @@
+<ion-split-pane when="md" contentId="main">
+  <ion-menu contentId="main">
+    <ion-header class="ion-no-border page-header">
+      <ion-toolbar>
+        <ion-icon name="trophy" class="menu-logo" size="large" slot="start"></ion-icon>
+        <ion-title class="menu-title">
+          Tonus
+          <span class="menu-subtitle">Хоккейное приложение</span>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <app-sidebar-menu />
+    </ion-content>
+  </ion-menu>
+
+  <div id="main" class="ion-page main-pane">
+    <ion-header class="ion-no-border page-header">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="page-title">{{ pageTitle$ | async }}</ion-title>
+        <ion-buttons slot="end">
+          <ion-button
+            class="profile-button"
+            fill="clear"
+            routerLink="/profile"
+            aria-label="Профиль">
+            <ion-avatar class="header-avatar">
+              <img
+                alt="Силуэт пользователя"
+                src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            </ion-avatar>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-router-outlet />
+  </div>
+</ion-split-pane>

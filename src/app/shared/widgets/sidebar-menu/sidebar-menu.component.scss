@@ -1,0 +1,19 @@
+ion-list {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0;
+}
+
+ion-item {
+  --color: var(--app-color-neutral-500);
+  --background: none;
+  border-radius: 0.5rem;
+}
+
+ion-item.active {
+  --background: var(--app-color-mint);
+  --color: var(--app-color-neutral-950);
+  font-weight: 600;
+}

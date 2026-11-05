@@ -1,22 +1,3 @@
-<ion-content [fullscreen]="true">
-  <ion-list inset="true">
-    <ion-list-header>
-      <ion-label>Внешний вид</ion-label>
-    </ion-list-header>
-
-    <ion-item lines="none">
-      <ion-toggle [checked]="dark()" (ionChange)="toggleTheme()">Тёмная тема</ion-toggle>
-    </ion-item>
-  </ion-list>
-
-  <ion-list inset="true">
-    <ion-list-header>
-      <ion-label>О приложении</ion-label>
-    </ion-list-header>
-
-    <ion-item lines="none">
-      <ion-label>Версия</ion-label>
-      <ion-note slot="end">{{ appVersion }}</ion-note>
-    </ion-item>
-  </ion-list>
-</ion-content>
+<app-page-layout>
+  <p class="ion-no-margin">В разработке</p>
+</app-page-layout>
