@@ -1,0 +1,11 @@
+<ion-input
+  [label]="label()"
+  labelPlacement="stacked"
+  fill="outline"
+  mode="md"
+  [type]="type()"
+  [autocomplete]="autocomplete()"
+  [value]="value()"
+  [disabled]="disabled()"
+  (ionInput)="onInput($event.detail.value)"
+  (ionBlur)="onBlur()" />

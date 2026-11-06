@@ -1,19 +1,31 @@
 ion-split-pane {
-  --side-width: 200px;
-  --side-min-width: 200px;
-  --side-max-width: 200px;
+  --side-width: 224px;
+  --side-min-width: 224px;
+  --side-max-width: 224px;
   --border: 1px solid var(--app-color-neutral-800);
 }
 
-ion-menu ion-toolbar {
+.menu-toolbar {
   --background: var(--app-color-neutral-950);
   --color: var(--app-color-neutral-0);
   --min-height: 72px;
+  cursor: pointer;
+}
+
+@media (any-hover: hover) {
+  .menu-toolbar:hover {
+    --background: var(--app-color-neutral-800);
+  }
+}
+
+.menu-toolbar:focus-visible {
+  outline: 2px solid var(--app-color-mint);
+  outline-offset: -2px;
 }
 
 .menu-logo {
   margin-inline-start: 16px;
-  color: var(--app-color-mint);
+  color: color-mix(in srgb, var(--app-color-amber) 85%, var(--app-color-neutral-950));
 }
 
 .menu-title {
@@ -38,6 +50,8 @@ ion-menu::part(container) {
 ion-menu ion-content {
   --background: var(--app-color-neutral-950);
   --color: var(--app-color-neutral-0);
+  --padding-start: 8px;
+  --padding-end: 8px;
 }
 
 .page-header {
@@ -54,14 +68,42 @@ ion-menu ion-content {
 }
 
 .profile-button {
-  --padding-start: 0;
-  --padding-end: 0;
-  margin-inline-end: 1rem;
+  --padding-start: 4px;
+  --padding-end: 4px;
+  --padding-top: 4px;
+  --padding-bottom: 4px;
+  --border-radius: 50%;
+  --background-hover: transparent;
+  --background-activated: transparent;
+  --background-focused: transparent;
+  --background-hover-opacity: 0;
+  --background-activated-opacity: 0;
+  --background-focused-opacity: 0;
+  --ripple-color: transparent;
+  width: 44px;
+  height: 44px;
+  margin-inline-end: 0.5rem;
 }
 
 .header-avatar {
   width: 36px;
   height: 36px;
+  transition: filter 150ms ease, opacity 150ms ease;
+}
+
+@media (any-hover: hover) {
+  .profile-button:hover .header-avatar {
+    filter: brightness(1.15);
+  }
+}
+
+.profile-button:active .header-avatar {
+  opacity: 0.7;
+}
+
+.profile-button:focus-visible .header-avatar {
+  outline: 2px solid var(--app-color-mint);
+  outline-offset: 1px;
 }
 
 .main-pane {

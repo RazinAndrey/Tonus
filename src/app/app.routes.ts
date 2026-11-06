@@ -15,6 +15,39 @@ export const routes: Routes = [
           import('./features/dashboard/dashboard.page').then((m) => m.DashboardPage),
       },
       {
+        path: 'trainings',
+        title: 'Тренировки',
+        loadComponent: () =>
+          import('./features/trainings/trainings.page').then((m) => m.TrainingsPage),
+      },
+      {
+        path: 'trainings/training-form',
+        title: 'Создать тренировку',
+        loadComponent: () =>
+          import('./features/trainings/training-form/training-form.component').then(
+            (c) => c.TrainingFormComponent,
+          ),
+      },
+      {
+        path: 'trainings/training-form/:conferenceId',
+        title: 'Редактировать тренировку',
+        loadComponent: () =>
+          import('./features/trainings/training-form/training-form.component').then(
+            (c) => c.TrainingFormComponent,
+          ),
+      },
+      {
+        path: 'calendar',
+        title: 'Календарь',
+        loadComponent: () =>
+          import('./features/calendar/calendar.page').then((m) => m.CalendarPage),
+      },
+      {
+        path: 'users',
+        title: 'Пользователи',
+        loadComponent: () => import('./features/users/users.page').then((m) => m.UsersPage),
+      },
+      {
         path: 'settings',
         title: 'Настройки',
         loadComponent: () =>

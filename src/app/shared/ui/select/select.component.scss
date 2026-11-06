@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+ion-select {
+  --color: var(--app-color-neutral-0);
+  --placeholder-color: var(--app-color-neutral-500);
+  --highlight-color-focused: var(--app-color-mint);
+}
+
+@media (any-hover: hover) {
+  ion-select:hover:not(.has-focus) {
+    --border-color: color-mix(in srgb, var(--app-color-mint) 45%, var(--app-color-neutral-800));
+  }
+}

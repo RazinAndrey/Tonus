@@ -1,0 +1,12 @@
+<ion-textarea
+  [label]="label()"
+  labelPlacement="stacked"
+  fill="outline"
+  mode="md"
+  [placeholder]="placeholder()"
+  [rows]="rows()"
+  [autoGrow]="autoGrow()"
+  [value]="value()"
+  [disabled]="disabled()"
+  (ionInput)="onInput($event.detail.value)"
+  (ionBlur)="onBlur()" />

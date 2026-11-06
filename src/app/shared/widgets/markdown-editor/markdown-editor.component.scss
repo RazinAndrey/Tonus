@@ -1,0 +1,49 @@
+app-markdown-editor {
+  display: block;
+
+  .editor-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background: var(--app-color-neutral-800);
+    border-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem 0.5rem 0 0;
+
+    button {
+      color: var(--app-color-neutral-0);
+
+      &:hover,
+      &.active {
+        color: var(--app-color-neutral-950);
+        background: var(--app-color-amber);
+        border-color: var(--app-color-amber);
+      }
+    }
+
+    i.separator {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  .CodeMirror {
+    color: var(--app-color-neutral-0);
+    background: var(--app-color-neutral-950);
+    border-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  .CodeMirror-cursor {
+    border-left-color: var(--app-color-neutral-0);
+  }
+
+  .editor-preview {
+    color: var(--app-color-neutral-0);
+    background: var(--app-color-neutral-950);
+  }
+
+  .editor-preview pre,
+  .editor-preview code {
+    color: var(--app-color-neutral-0);
+    background: var(--app-color-neutral-800);
+  }
+}

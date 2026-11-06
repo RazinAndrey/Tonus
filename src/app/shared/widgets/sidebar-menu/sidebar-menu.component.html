@@ -1,7 +1,20 @@
 <ion-list>
   @for (link of links; track link.url) {
     <ion-item lines="none" [routerLink]="link.url" routerDirection="root" routerLinkActive="active">
+      <ion-icon [name]="link.icon" slot="start" aria-hidden="true"></ion-icon>
       <ion-label>{{ link.label }}</ion-label>
     </ion-item>
   }
+</ion-list>
+
+<ion-list class="profile-links">
+  <ion-item lines="none" routerLink="/profile" routerDirection="root" routerLinkActive="active">
+    <ion-avatar class="profile-avatar" slot="start" aria-hidden="true">
+      <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+    </ion-avatar>
+    <ion-label>
+      <span class="profile-name">Андрей</span>
+      <span class="profile-subtitle">Мой профиль</span>
+    </ion-label>
+  </ion-item>
 </ion-list>

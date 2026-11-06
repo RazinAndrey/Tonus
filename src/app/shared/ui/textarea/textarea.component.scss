@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+ion-textarea {
+  --color: var(--app-color-neutral-0);
+  --highlight-color-focused: var(--app-color-mint);
+}
+
+@media (any-hover: hover) {
+  ion-textarea:hover:not(.has-focus) {
+    --border-color: color-mix(in srgb, var(--app-color-mint) 45%, var(--app-color-neutral-800));
+  }
+}

@@ -1,25 +1,16 @@
 <app-page-layout>
-  <div class="profile-fields">
-    <ion-input
-      label="Имя"
-      labelPlacement="stacked"
-      fill="outline"
-      mode="md"
-      type="text"
-      autocomplete="name" />
-    <ion-input
-      label="Email"
-      labelPlacement="stacked"
-      fill="outline"
-      mode="md"
-      type="email"
-      autocomplete="email" />
-    <ion-input
-      label="Телефон"
-      labelPlacement="stacked"
-      fill="outline"
-      mode="md"
-      type="tel"
-      autocomplete="tel" />
-  </div>
+  <app-card-layout title="Профиль" subtitle="Демо-данные">
+    <form class="profile-fields" [formGroup]="profileForm">
+      <app-input label="Имя" type="text" autocomplete="name" formControlName="name" />
+      <app-input label="Email" type="email" autocomplete="email" formControlName="email" />
+      <app-input label="Телефон" type="tel" autocomplete="tel" formControlName="phone" />
+      <app-textarea label="Описание"></app-textarea>
+      <app-select label="Уровень" [options]="levels" formControlName="level"></app-select>
+
+      <app-button color="sky">Редактировать</app-button>
+      <app-button color="sky">Отмена</app-button>
+      <app-button color="sky">Сохранить</app-button>
+      <app-button color="rose">Выход</app-button>
+    </form>
+  </app-card-layout>
 </app-page-layout>

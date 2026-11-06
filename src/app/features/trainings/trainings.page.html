@@ -1,0 +1,8 @@
+<app-page-layout>
+  <app-card-layout title="Заметки" subtitle="Текст сохраняется на этом устройстве">
+    <app-markdown-editor [value]="draft()" (valueChange)="saveDraft($event)" />
+  </app-card-layout>
+
+  <app-button routerLink="/trainings/training-form" color="mint">Создать</app-button>
+
+</app-page-layout>

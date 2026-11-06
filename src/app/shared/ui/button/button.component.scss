@@ -1,0 +1,34 @@
+:host {
+  display: block;
+}
+
+ion-button {
+  --button-accent: var(--app-color-mint);
+  --background: var(--button-accent);
+  --background-hover: color-mix(in srgb, var(--button-accent) 85%, var(--app-color-neutral-0));
+  --background-activated: color-mix(
+    in srgb,
+    var(--button-accent) 75%,
+    var(--app-color-neutral-950)
+  );
+  --color: var(--app-color-neutral-950);
+  --border-radius: 0.5rem;
+  --box-shadow: none;
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  margin: 0;
+  // font-weight: 600;
+  text-transform: none;
+}
+
+ion-button.button-amber {
+  --button-accent: var(--app-color-amber);
+}
+
+ion-button.button-rose {
+  --button-accent: var(--app-color-rose);
+}
+
+ion-button.button-sky {
+  --button-accent: var(--app-color-sky);
+}

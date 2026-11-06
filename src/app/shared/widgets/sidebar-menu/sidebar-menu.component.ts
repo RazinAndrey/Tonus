@@ -1,17 +1,25 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { IonItem, IonLabel, IonList, IonRouterLink } from '@ionic/angular';
+import { IonAvatar, IonIcon, IonItem, IonLabel, IonList, IonRouterLink } from '@ionic/angular';
+import { addIcons } from 'ionicons';
+import { barbellOutline, calendarOutline, homeOutline, peopleOutline, settingsOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-sidebar-menu',
-  imports: [IonList, IonItem, IonLabel, RouterLink, IonRouterLink, RouterLinkActive],
+  imports: [IonList, IonItem, IonIcon, IonAvatar, IonLabel, RouterLink, IonRouterLink, RouterLinkActive],
   templateUrl: './sidebar-menu.component.html',
   styleUrls: ['./sidebar-menu.component.scss'],
 })
 export class SidebarMenuComponent {
+  constructor() {
+    addIcons({ barbellOutline, calendarOutline, homeOutline, peopleOutline, settingsOutline });
+  }
+
   protected readonly links = [
-    { label: 'Дашборд', url: '/dashboard' },
-    { label: 'Настройки', url: '/settings' },
-    { label: 'Профиль', url: '/profile' },
+    { label: 'Дашборд', url: '/dashboard', icon: 'home-outline' },
+    { label: 'Тренировки', url: '/trainings', icon: 'barbell-outline' },
+    { label: 'Календарь', url: '/calendar', icon: 'calendar-outline' },
+    { label: 'Пользователи', url: '/users', icon: 'people-outline' },
+    { label: 'Настройки', url: '/settings', icon: 'settings-outline' },
   ];
 }
