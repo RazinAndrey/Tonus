@@ -18,7 +18,7 @@ import {
   IonToolbar,
   IonButtons,
   IonMenuButton,
-} from '@ionic/angular/standalone';
+} from '@ionic/angular';
 import { SidebarMenuComponent } from '../../widgets/sidebar-menu/sidebar-menu.component';
 
 @Component({

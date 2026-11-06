@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { IonItem, IonLabel, IonList, IonRouterLink } from '@ionic/angular/standalone';
+import { IonItem, IonLabel, IonList, IonRouterLink } from '@ionic/angular';
 
 @Component({
   selector: 'app-sidebar-menu',
