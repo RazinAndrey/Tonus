@@ -10,7 +10,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        title: 'Главная',
+        title: 'Дашборд',
         loadComponent: () =>
           import('./features/dashboard/dashboard.page').then((m) => m.DashboardPage),
       },

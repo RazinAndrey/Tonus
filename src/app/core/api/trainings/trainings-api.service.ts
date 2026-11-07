@@ -1,12 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TrainingData } from './training.model';
+import { TrainingData, TrainingPayload } from '../../models/training.model';
+import { TrainingsApi } from './trainings-api';
 
-type TrainingPayload = Omit<TrainingData, 'id'>;
-
-@Injectable({ providedIn: 'root' })
-export class TrainingsApiService {
+@Injectable()
+export class TrainingsApiService extends TrainingsApi {
   private readonly http = inject(HttpClient);
   private readonly url = '/api/trainings';
 
@@ -15,7 +14,7 @@ export class TrainingsApiService {
   }
 
   get(id: string): Observable<TrainingData> {
-    return this.http.get<TrainingData>(`${this.url}/${encodeURIComponent(id)}`);
+    return this.http.get<TrainingData>(`${this.url}/${id}`);
   }
 
   create(training: TrainingPayload): Observable<TrainingData> {
@@ -23,10 +22,10 @@ export class TrainingsApiService {
   }
 
   update(id: string, training: Partial<TrainingPayload>): Observable<TrainingData> {
-    return this.http.patch<TrainingData>(`${this.url}/${encodeURIComponent(id)}`, training);
+    return this.http.patch<TrainingData>(`${this.url}/${id}`, training);
   }
 
   remove(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.url}/${encodeURIComponent(id)}`);
+    return this.http.delete<void>(`${this.url}/${id}`);
   }
 }

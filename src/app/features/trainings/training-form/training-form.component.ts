@@ -1,13 +1,7 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  input,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
 import { form } from '@angular/forms/signals';
 import { PageLayoutComponent } from '../../../shared/layouts/page-layout/page-layout.component';
-import { TrainingData } from '../../../core/api/trainings/training.model';
+import { TrainingData } from '../../../core/models/training.model';
 
 @Component({
   selector: 'app-training-form',
@@ -20,12 +14,12 @@ export class TrainingFormComponent {
   readonly trainingId = input<string | undefined>();
   readonly isEditMode = computed(() => Boolean(this.trainingId()));
 
-  trainingModel = signal<TrainingData>({
+  readonly trainingModel = signal<TrainingData>({
     id: '',
     title: '',
     short_description: '',
     description: '',
   });
 
-  trainingForm = form(this.trainingModel);
+  readonly trainingForm = form(this.trainingModel);
 }

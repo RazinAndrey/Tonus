@@ -4,3 +4,5 @@ export interface TrainingData {
   short_description: string;
   description: string;
 }
+
+export type TrainingPayload = Omit<TrainingData, 'id'>;

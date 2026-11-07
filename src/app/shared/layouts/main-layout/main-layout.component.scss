@@ -73,9 +73,6 @@ ion-menu ion-content {
   --padding-top: 4px;
   --padding-bottom: 4px;
   --border-radius: 50%;
-  --background-hover: transparent;
-  --background-activated: transparent;
-  --background-focused: transparent;
   --background-hover-opacity: 0;
   --background-activated-opacity: 0;
   --background-focused-opacity: 0;
@@ -88,7 +85,9 @@ ion-menu ion-content {
 .header-avatar {
   width: 36px;
   height: 36px;
-  transition: filter 150ms ease, opacity 150ms ease;
+  transition:
+    filter 150ms ease,
+    opacity 150ms ease;
 }
 
 @media (any-hover: hover) {

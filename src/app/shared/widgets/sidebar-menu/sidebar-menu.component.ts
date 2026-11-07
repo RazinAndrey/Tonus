@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { IonAvatar, IonIcon, IonItem, IonLabel, IonList, IonRouterLink } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { barbellOutline, calendarOutline, homeOutline, peopleOutline, settingsOutline } from 'ionicons/icons';
+import { barbellOutline, calendarOutline, gridOutline, peopleOutline, settingsOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-sidebar-menu',
@@ -12,11 +12,11 @@ import { barbellOutline, calendarOutline, homeOutline, peopleOutline, settingsOu
 })
 export class SidebarMenuComponent {
   constructor() {
-    addIcons({ barbellOutline, calendarOutline, homeOutline, peopleOutline, settingsOutline });
+    addIcons({ barbellOutline, calendarOutline, gridOutline, peopleOutline, settingsOutline });
   }
 
   protected readonly links = [
-    { label: 'Дашборд', url: '/dashboard', icon: 'home-outline' },
+    { label: 'Дашборд', url: '/dashboard', icon: 'grid-outline' },
     { label: 'Тренировки', url: '/trainings', icon: 'barbell-outline' },
     { label: 'Календарь', url: '/calendar', icon: 'calendar-outline' },
     { label: 'Пользователи', url: '/users', icon: 'people-outline' },
