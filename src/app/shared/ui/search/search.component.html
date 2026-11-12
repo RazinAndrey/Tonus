@@ -1,0 +1,7 @@
+<ion-searchbar
+  mode="md"
+  aria-label="Поиск"
+  [placeholder]="placeholder()"
+  [value]="value()"
+  (ionInput)="onInput($event.detail.value)"
+  (ionBlur)="onBlur()" />

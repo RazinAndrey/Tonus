@@ -1,8 +1,23 @@
 <app-page-layout>
-  <app-card-layout title="Заметки" subtitle="Текст сохраняется на этом устройстве">
-    <app-markdown-editor [value]="draft()" (valueChange)="saveDraft($event)" />
-  </app-card-layout>
+  <app-search />
 
-  <app-button routerLink="/trainings/training-form" color="mint">Создать</app-button>
+  @if (trainings$ | async; as trainings) {
+    <ion-list>
+      @for (training of trainings; track training.id; let isLast = $last) {
+        <ion-item [lines]="isLast ? 'none' : 'full'">
+          <ion-label>
+            <h2>{{ training.title }}</h2>
+            <p>{{ training.short_description }}</p>
+          </ion-label>
+          <ion-icon class="training-chevron" name="chevron-forward-outline" slot="end" aria-hidden="true" />
+        </ion-item>
+      }
+    </ion-list>
+  }
 
+  <ion-fab slot="fixed">
+    <ion-fab-button routerLink="/trainings/training-form" aria-label="Создать тренировку">
+      <ion-icon name="add" aria-hidden="true" />
+    </ion-fab-button>
+  </ion-fab>
 </app-page-layout>

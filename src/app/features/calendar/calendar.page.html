@@ -1,3 +1,10 @@
 <app-page-layout>
-  <p class="ion-no-margin">Календарь в разработке</p>
+  <div class="calendar-preview">
+    <ion-datetime
+      presentation="date"
+      size="cover"
+      locale="ru-RU"
+      [firstDayOfWeek]="1"
+      [showAdjacentDays]="true" />
+  </div>
 </app-page-layout>

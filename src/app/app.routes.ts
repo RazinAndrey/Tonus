@@ -22,7 +22,7 @@ export const routes: Routes = [
       },
       {
         path: 'trainings/training-form',
-        title: 'Создать тренировку',
+        title: 'Создание тренировки',
         loadComponent: () =>
           import('./features/trainings/training-form/training-form.component').then(
             (c) => c.TrainingFormComponent,
@@ -30,7 +30,7 @@ export const routes: Routes = [
       },
       {
         path: 'trainings/training-form/:conferenceId',
-        title: 'Редактировать тренировку',
+        title: 'Редактирование тренировки',
         loadComponent: () =>
           import('./features/trainings/training-form/training-form.component').then(
             (c) => c.TrainingFormComponent,

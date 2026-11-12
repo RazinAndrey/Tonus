@@ -1,0 +1,20 @@
+:host {
+  display: block;
+  border: 1px solid var(--app-card-border);
+  border-radius: 0.5rem;
+}
+
+:host(:focus-within) {
+  border-color: var(--app-color-mint);
+}
+
+ion-searchbar {
+  --background: var(--app-color-neutral-900);
+  --color: var(--app-color-neutral-0);
+  --placeholder-color: var(--app-color-neutral-500);
+  --icon-color: var(--app-color-mint);
+  --clear-button-color: var(--app-color-neutral-500);
+  --box-shadow: none;
+  --border-radius: 0.5rem;
+  padding: 0;
+}

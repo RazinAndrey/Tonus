@@ -1,0 +1,13 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+  <ion-title class="page-title">{{ pageTitle$ | async }}</ion-title>
+  <ion-buttons slot="end">
+    <ion-button class="profile-button" fill="clear" routerLink="/profile" aria-label="Профиль">
+      <ion-avatar class="header-avatar">
+        <img alt="" src="assets/icons/profile.svg" />
+      </ion-avatar>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>

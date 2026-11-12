@@ -1,0 +1,60 @@
+:host {
+  display: block;
+}
+
+ion-toolbar {
+  --background: var(--app-color-neutral-950);
+  --color: var(--app-color-neutral-0);
+}
+
+.page-title {
+  --color: var(--app-color-neutral-0);
+}
+
+.profile-button {
+  --padding-start: 4px;
+  --padding-end: 4px;
+  --padding-top: 4px;
+  --padding-bottom: 4px;
+  --border-radius: 50%;
+  --background-hover-opacity: 0;
+  --background-activated-opacity: 0;
+  --background-focused-opacity: 0;
+  --ripple-color: transparent;
+  width: 44px;
+  height: 44px;
+  margin-inline-end: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  ion-toolbar {
+    --padding-top: 1rem;
+  }
+
+  .profile-button {
+    margin-inline-end: 1rem;
+  }
+}
+
+.header-avatar {
+  width: 36px;
+  height: 36px;
+  transition:
+    filter 150ms ease,
+    opacity 150ms ease;
+}
+
+@media (any-hover: hover) {
+  .profile-button:hover .header-avatar {
+    filter: brightness(1.15);
+  }
+}
+
+.profile-button:active .header-avatar {
+  opacity: 0.7;
+}
+
+.profile-button:focus-visible .header-avatar {
+  outline: 2px solid var(--app-color-mint);
+  outline-offset: 1px;
+}

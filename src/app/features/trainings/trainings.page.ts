@@ -1,11 +1,20 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { CardLayoutComponent } from '../../shared/layouts/card-layout/card-layout.component';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { TrainingsApi } from '../../core/api/trainings/trainings-api';
 import { PageLayoutComponent } from '../../shared/layouts/page-layout/page-layout.component';
-import { MarkdownEditorComponent } from '../../shared/widgets/markdown-editor/markdown-editor.component';
-import { ButtonComponent } from '../../shared/ui/button/button.component';
-
-// Keep the existing key so notes saved on the dashboard remain available.
-const DRAFT_STORAGE_KEY = 'tonus-dashboard-note';
+import { AsyncPipe } from '@angular/common';
+import {
+  IonFab,
+  IonFabButton,
+  IonIcon,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonRouterLink,
+} from '@ionic/angular';
+import { addIcons } from 'ionicons';
+import { add, chevronForwardOutline } from 'ionicons/icons';
+import { SearchComponent } from '../../shared/ui/search/search.component';
 
 @Component({
   selector: 'app-trainings',
@@ -13,17 +22,25 @@ const DRAFT_STORAGE_KEY = 'tonus-dashboard-note';
   styleUrls: ['trainings.page.scss'],
   imports: [
     PageLayoutComponent,
-    CardLayoutComponent,
-    MarkdownEditorComponent,
-    ButtonComponent,
+    AsyncPipe,
+    SearchComponent,
+    RouterLink,
+    IonRouterLink,
+    IonFab,
+    IonFabButton,
+    IonIcon,
+    IonList,
+    IonItem,
+    IonLabel,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TrainingsPage {
-  readonly draft = signal(localStorage.getItem(DRAFT_STORAGE_KEY) ?? '');
-
-  saveDraft(markdown: string): void {
-    this.draft.set(markdown);
-    localStorage.setItem(DRAFT_STORAGE_KEY, markdown);
+  constructor() {
+    addIcons({ add, chevronForwardOutline });
   }
+
+  protected readonly trainingsApi = inject(TrainingsApi);
+
+  trainings$ = this.trainingsApi.list();
 }

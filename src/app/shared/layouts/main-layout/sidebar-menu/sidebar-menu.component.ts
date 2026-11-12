@@ -1,18 +1,34 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { IonAvatar, IonIcon, IonItem, IonLabel, IonList, IonRouterLink } from '@ionic/angular';
+import { IonIcon, IonItem, IonLabel, IonList, IonMenuToggle, IonRouterLink } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { barbellOutline, calendarOutline, gridOutline, peopleOutline, settingsOutline } from 'ionicons/icons';
+import {
+  barbellOutline,
+  calendarOutline,
+  gridOutline,
+  peopleOutline,
+  personOutline,
+  settingsOutline,
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-sidebar-menu',
-  imports: [IonList, IonItem, IonIcon, IonAvatar, IonLabel, RouterLink, IonRouterLink, RouterLinkActive],
+  imports: [
+    IonList,
+    IonItem,
+    IonIcon,
+    IonLabel,
+    IonMenuToggle,
+    RouterLink,
+    IonRouterLink,
+    RouterLinkActive,
+  ],
   templateUrl: './sidebar-menu.component.html',
   styleUrls: ['./sidebar-menu.component.scss'],
 })
 export class SidebarMenuComponent {
   constructor() {
-    addIcons({ barbellOutline, calendarOutline, gridOutline, peopleOutline, settingsOutline });
+    addIcons({ barbellOutline, calendarOutline, gridOutline, peopleOutline, personOutline, settingsOutline });
   }
 
   protected readonly links = [

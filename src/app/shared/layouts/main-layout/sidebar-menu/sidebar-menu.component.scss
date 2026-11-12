@@ -21,13 +21,6 @@ ion-list {
   --min-height: 64px;
 }
 
-.profile-avatar {
-  width: 36px;
-  height: 36px;
-  margin-inline-end: 12px;
-  flex-shrink: 0;
-}
-
 .profile-name,
 .profile-subtitle {
   display: block;
@@ -94,6 +87,7 @@ ion-label {
   .profile-links ion-item:not(.active):hover .profile-subtitle {
     color: var(--app-color-neutral-0);
   }
+
 }
 
 ion-item.active {

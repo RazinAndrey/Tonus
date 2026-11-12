@@ -18,6 +18,12 @@ export class MockTrainingsApiService extends TrainingsApi {
       short_description: 'Упражнения на всё тело',
       description: 'Выполните упражнения для основных групп мышц.',
     },
+    {
+      id: '1',
+      title: 'Утренняя разминка',
+      short_description: 'Лёгкая тренировка для начала дня',
+      description: 'Разомнитесь перед основными делами и настройтесь на активный день.',
+    },
   ];
 
   list(): Observable<TrainingData[]> {

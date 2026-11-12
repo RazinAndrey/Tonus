@@ -1,1 +1,76 @@
+ion-list {
+  background: var(--app-color-neutral-900);
+  border: 1px solid var(--app-card-border);
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+  padding: 0;
+  overflow: hidden;
+}
 
+ion-item {
+  --background: transparent;
+  --color: var(--app-color-neutral-0);
+  --border-color: var(--app-card-border);
+}
+
+ion-item::part(native) {
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+@media (any-hover: hover) {
+  ion-item:hover {
+    --background: color-mix(in srgb, var(--app-color-mint) 14%, var(--app-color-neutral-900));
+  }
+}
+
+ion-item:active,
+ion-item.ion-activated {
+  --background: var(--app-color-neutral-800);
+}
+
+.training-chevron {
+  color: var(--app-color-neutral-500);
+  font-size: 1.25rem;
+}
+
+ion-fab {
+  inset-inline-end: 16px;
+  bottom: calc(16px + var(--ion-safe-area-bottom, 0px));
+}
+
+@media (min-width: 768px) {
+  ion-fab {
+    inset-inline-end: 24px;
+    bottom: 24px;
+  }
+}
+
+ion-fab-button {
+  --background: var(--app-color-mint);
+  --background-hover-opacity: 0;
+  --background-activated-opacity: 0;
+  --background-focused-opacity: 0;
+  --ripple-color: transparent;
+  --color: var(--app-color-neutral-950);
+  transition:
+    filter 150ms ease,
+    opacity 150ms ease;
+}
+
+@media (any-hover: hover) {
+  ion-fab-button:hover {
+    filter: brightness(1.15);
+  }
+}
+
+ion-fab-button:active,
+ion-fab-button.ion-activated {
+  opacity: 0.7;
+}
+
+ion-fab-button:focus-visible {
+  outline: 2px solid var(--app-color-mint);
+  outline-offset: 1px;
+}

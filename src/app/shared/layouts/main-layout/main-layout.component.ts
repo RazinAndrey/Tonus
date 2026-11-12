@@ -1,13 +1,8 @@
-import { AsyncPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { NavigationEnd, Router, RouterLink, TitleStrategy } from '@angular/router';
-import { distinctUntilChanged, filter, map, startWith } from 'rxjs';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { trophy } from 'ionicons/icons';
 import {
-  IonAvatar,
-  IonButton,
-  IonRouterLink,
   IonContent,
   IonHeader,
   IonIcon,
@@ -16,17 +11,13 @@ import {
   IonSplitPane,
   IonTitle,
   IonToolbar,
-  IonButtons,
-  IonMenuButton,
 } from '@ionic/angular';
-import { SidebarMenuComponent } from '../../widgets/sidebar-menu/sidebar-menu.component';
+import { PageHeaderComponent } from './page-header/page-header.component';
+import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
 
 @Component({
   selector: 'app-main-layout',
   imports: [
-    IonAvatar,
-    IonButton,
-    IonRouterLink,
     RouterLink,
     IonSplitPane,
     IonMenu,
@@ -36,10 +27,8 @@ import { SidebarMenuComponent } from '../../widgets/sidebar-menu/sidebar-menu.co
     IonTitle,
     IonContent,
     IonRouterOutlet,
+    PageHeaderComponent,
     SidebarMenuComponent,
-    IonButtons,
-    IonMenuButton,
-    AsyncPipe,
   ],
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss'],
@@ -49,14 +38,4 @@ export class MainLayoutComponent {
   constructor() {
     addIcons({ trophy });
   }
-
-  private readonly router = inject(Router);
-  private readonly titleStrategy = inject(TitleStrategy);
-
-  readonly pageTitle$ = this.router.events.pipe(
-    filter((event) => event instanceof NavigationEnd),
-    startWith(null),
-    map(() => this.titleStrategy.buildTitle(this.router.routerState.snapshot) ?? ''),
-    distinctUntilChanged(),
-  );
 }

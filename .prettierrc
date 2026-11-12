@@ -1,5 +1,13 @@
 {
   "bracketSameLine": true,
   "htmlWhitespaceSensitivity": "ignore",
-  "printWidth": 100
+  "printWidth": 100,
+  "overrides": [
+    {
+      "files": "src/app/**/*.html",
+      "options": {
+        "parser": "angular"
+      }
+    }
+  ]
 }
