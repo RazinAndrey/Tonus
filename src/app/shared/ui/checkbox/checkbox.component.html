@@ -1,0 +1,10 @@
+<ion-checkbox
+  labelPlacement="end"
+  justify="start"
+  [checked]="checked()"
+  [disabled]="disabled()"
+  [class]="'checkbox-' + color()"
+  (ionChange)="onCheckedChange($event.detail.checked)"
+  (ionBlur)="onBlur()">
+  {{ label() }}
+</ion-checkbox>

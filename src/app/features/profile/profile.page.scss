@@ -1,5 +1,104 @@
-.profile-fields {
+:host {
+  display: block;
+}
+
+.profile {
   display: grid;
   gap: 1rem;
-  max-width: 30rem;
+  width: 100%;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.profile-intro {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  flex-shrink: 0;
+}
+
+.profile-name {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.profile-level {
+  margin: 0.25rem 0 0;
+  color: var(--app-color-neutral-500);
+  font-size: 0.875rem;
+}
+
+.profile-card {
+  width: 100%;
+  --card-background: var(--app-color-neutral-900);
+}
+
+.profile-view {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.profile-view-row {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.profile-view dt {
+  color: var(--app-color-neutral-500);
+  font-size: 0.75rem;
+}
+
+.profile-view dd {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 560px) {
+  .profile-view-row {
+    grid-template-columns: 10rem minmax(0, 1fr);
+    align-items: baseline;
+    gap: 1rem;
+  }
+}
+
+.profile-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.profile-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .profile-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .profile-bio {
+    grid-column: 1 / -1;
+  }
+}
+
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.profile-logout {
+  justify-self: start;
+  margin-top: 0.25rem;
 }

@@ -1,12 +1,21 @@
-import { ChangeDetectionStrategy, Component, forwardRef, input, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  forwardRef,
+  input,
+  signal,
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { IonInput } from '@ionic/angular';
+import { addIcons } from 'ionicons';
+import { eyeOffOutline, eyeOutline } from 'ionicons/icons';
+import { IonButton, IonIcon, IonInput } from '@ionic/angular';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
-  imports: [IonInput],
+  imports: [IonButton, IonIcon, IonInput],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -18,13 +27,28 @@ import { IonInput } from '@ionic/angular';
 })
 export class InputComponent implements ControlValueAccessor {
   readonly label = input.required<string>();
-  readonly type = input<'text' | 'email' | 'tel' | 'number'>('text');
-  readonly autocomplete = input<'off' | 'name' | 'email' | 'tel'>('off');
+  readonly type = input<'text' | 'email' | 'tel' | 'number' | 'password'>('text');
+  readonly autocomplete = input<
+    'off' | 'name' | 'email' | 'tel' | 'username' | 'current-password' | 'new-password'
+  >('off');
+  readonly errorText = input('');
   protected readonly value = signal('');
   protected readonly disabled = signal(false);
+  protected readonly showPassword = signal(false);
+  protected readonly resolvedType = computed(() =>
+    this.type() === 'password' && this.showPassword() ? 'text' : this.type(),
+  );
 
   private onChange: (value: string | number | null) => void = () => {};
   private onTouched: () => void = () => {};
+
+  constructor() {
+    addIcons({ eyeOutline, eyeOffOutline });
+  }
+
+  protected togglePasswordVisibility(): void {
+    this.showPassword.update((visible) => !visible);
+  }
 
   writeValue(value: string | number | null): void {
     this.value.set(value == null ? '' : String(value));

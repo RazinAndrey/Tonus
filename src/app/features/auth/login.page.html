@@ -1,0 +1,33 @@
+<ion-content [fullscreen]="true" class="login-content">
+  <div class="login-wrapper">
+    <div class="login-brand">
+      <ion-icon name="trophy" class="login-logo" aria-hidden="true" />
+      <h1 class="login-title">Tonus</h1>
+      <p class="login-subtitle">Спортивное приложение</p>
+    </div>
+
+    <app-card-layout class="login-card" title="Вход">
+      <form (submit)="onSubmit($event)" class="login-form">
+        <app-input
+          label="Электронная почта"
+          type="email"
+          autocomplete="email"
+          [formField]="loginForm.email"
+          [errorText]="emailError()" />
+
+        <app-input
+          label="Пароль"
+          type="password"
+          autocomplete="current-password"
+          [formField]="loginForm.password"
+          [errorText]="passwordError()" />
+
+        <app-checkbox label="Запомнить меня" color="mint" [formField]="loginForm.rememberMe" />
+
+        <app-button type="submit" expand="block" [disabled]="loginForm().invalid()">
+          Войти
+        </app-button>
+      </form>
+    </app-card-layout>
+  </div>
+</ion-content>

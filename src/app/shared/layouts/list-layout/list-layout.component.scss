@@ -1,0 +1,34 @@
+:host {
+  display: block;
+}
+
+ion-list {
+  background: var(--app-color-neutral-900);
+  border: 1px solid var(--app-card-border);
+  border-radius: 0.5rem;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+:host ::ng-deep ion-item {
+  --background: transparent;
+  --color: var(--app-color-neutral-0);
+  --border-color: var(--app-card-border);
+}
+
+:host ::ng-deep ion-item::part(native) {
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+@media (any-hover: hover) {
+  :host ::ng-deep ion-item:hover {
+    --background: color-mix(in srgb, var(--app-color-mint) 14%, var(--app-color-neutral-900));
+  }
+}
+
+:host ::ng-deep ion-item:active,
+:host ::ng-deep ion-item.ion-activated {
+  --background: var(--app-color-neutral-800);
+}

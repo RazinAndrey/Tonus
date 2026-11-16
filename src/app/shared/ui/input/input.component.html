@@ -3,9 +3,23 @@
   labelPlacement="stacked"
   fill="outline"
   mode="md"
-  [type]="type()"
+  [type]="resolvedType()"
   [autocomplete]="autocomplete()"
   [value]="value()"
   [disabled]="disabled()"
+  [helperText]="errorText()"
+  [attr.data-invalid]="errorText() ? '' : null"
   (ionInput)="onInput($event.detail.value)"
-  (ionBlur)="onBlur()" />
+  (ionBlur)="onBlur()">
+  @if (type() === 'password') {
+    <ion-button
+      slot="end"
+      fill="clear"
+      type="button"
+      class="password-toggle"
+      [attr.aria-label]="showPassword() ? 'Скрыть пароль' : 'Показать пароль'"
+      (click)="togglePasswordVisibility()">
+      <ion-icon slot="icon-only" [name]="showPassword() ? 'eye-off-outline' : 'eye-outline'" />
+    </ion-button>
+  }
+</ion-input>

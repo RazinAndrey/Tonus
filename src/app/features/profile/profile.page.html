@@ -1,16 +1,83 @@
 <app-page-layout>
-  <app-card-layout title="Профиль" subtitle="Демо-данные">
-    <form class="profile-fields" [formGroup]="profileForm">
-      <app-input label="Имя" type="text" autocomplete="name" formControlName="name" />
-      <app-input label="Email" type="email" autocomplete="email" formControlName="email" />
-      <app-input label="Телефон" type="tel" autocomplete="tel" formControlName="phone" />
-      <app-textarea label="Описание"></app-textarea>
-      <app-select label="Уровень" [options]="levels" formControlName="level"></app-select>
+  <section class="profile">
+    <header class="profile-intro">
+      <ion-avatar class="profile-avatar">
+        <img src="assets/icons/profile.svg" alt="Аватар пользователя" />
+      </ion-avatar>
+      <div>
+        <h2 class="profile-name">{{ displayName }}</h2>
+        <p class="profile-level">{{ displayLevel }}</p>
+      </div>
+    </header>
 
-      <app-button color="sky">Редактировать</app-button>
-      <app-button color="sky">Отмена</app-button>
-      <app-button color="sky">Сохранить</app-button>
-      <app-button color="rose">Выход</app-button>
-    </form>
-  </app-card-layout>
+    <app-card-layout class="profile-card" title="Личные данные">
+      @if (isEditing()) {
+        <form class="profile-form" [formGroup]="profileForm" (ngSubmit)="save()">
+          <div class="profile-grid">
+            <app-input label="Имя" type="text" autocomplete="name" formControlName="name" />
+            <app-input
+              label="Электронная почта"
+              type="email"
+              autocomplete="email"
+              formControlName="email" />
+            <app-input label="Телефон" type="tel" autocomplete="tel" formControlName="phone" />
+            <app-select label="Уровень" [options]="levels" formControlName="level" />
+            <div class="profile-bio">
+              <app-textarea label="О себе" [rows]="3" formControlName="description" />
+            </div>
+          </div>
+
+          <div class="profile-actions">
+            <app-button type="submit" color="mint" size="36px">Сохранить</app-button>
+            <app-button
+              type="button"
+              fill="clear"
+              color="mint"
+              size="36px"
+              (click)="cancelEdit()">
+              Отмена
+            </app-button>
+          </div>
+        </form>
+      } @else {
+        <dl class="profile-view">
+          <div class="profile-view-row">
+            <dt>Имя</dt>
+            <dd>{{ displayName }}</dd>
+          </div>
+          <div class="profile-view-row">
+            <dt>Электронная почта</dt>
+            <dd>{{ displayEmail }}</dd>
+          </div>
+          <div class="profile-view-row">
+            <dt>Телефон</dt>
+            <dd>{{ displayPhone }}</dd>
+          </div>
+          <div class="profile-view-row">
+            <dt>Уровень</dt>
+            <dd>{{ displayLevel }}</dd>
+          </div>
+          <div class="profile-view-row">
+            <dt>О себе</dt>
+            <dd>{{ displayDescription }}</dd>
+          </div>
+        </dl>
+
+        <div class="profile-actions">
+          <app-button
+            type="button"
+            fill="outline"
+            color="mint"
+            size="36px"
+            (click)="startEdit()">
+            Редактировать
+          </app-button>
+        </div>
+      }
+    </app-card-layout>
+
+    <app-button class="profile-logout" type="button" fill="clear" color="rose" size="36px">
+      Выйти
+    </app-button>
+  </section>
 </app-page-layout>

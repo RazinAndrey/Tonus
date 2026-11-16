@@ -2,7 +2,7 @@
   <app-search />
 
   @if (trainings$ | async; as trainings) {
-    <ion-list>
+    <app-list-layout class="trainings-list">
       @for (training of trainings; track training.id; let isLast = $last) {
         <ion-item [lines]="isLast ? 'none' : 'full'">
           <ion-label>
@@ -12,7 +12,7 @@
           <ion-icon class="training-chevron" name="chevron-forward-outline" slot="end" aria-hidden="true" />
         </ion-item>
       }
-    </ion-list>
+    </app-list-layout>
   }
 
   <ion-fab slot="fixed">

@@ -3,7 +3,7 @@
 }
 
 ion-card {
-  --background: var(--app-card-background);
+  --background: var(--card-background, var(--app-card-background));
   --color: var(--app-color-neutral-0);
   margin: 0;
   border: 1px solid var(--app-card-border);

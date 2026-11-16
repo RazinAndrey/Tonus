@@ -1,0 +1,55 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.login-content {
+  --background: var(--app-color-neutral-950);
+  --color: var(--app-color-neutral-0);
+}
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 100%;
+  max-width: 26rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.login-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.login-logo {
+  color: color-mix(in srgb, var(--app-color-amber) 85%, var(--app-color-neutral-950));
+  font-size: 3rem;
+}
+
+.login-title {
+  margin: 0.5rem 0 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.login-subtitle {
+  margin: 0.25rem 0 0;
+  color: var(--app-color-neutral-500);
+  font-size: 0.875rem;
+}
+
+.login-card {
+  width: 100%;
+  --card-background: var(--app-color-neutral-900);
+}
+
+.login-form {
+  display: grid;
+  gap: 1rem;
+}

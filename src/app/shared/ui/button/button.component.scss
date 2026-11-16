@@ -32,3 +32,27 @@ ion-button.button-rose {
 ion-button.button-sky {
   --button-accent: var(--app-color-sky);
 }
+
+ion-button.button-fill-outline {
+  --background: transparent;
+  --background-hover: color-mix(in srgb, var(--button-accent) 10%, transparent);
+  --background-activated: color-mix(in srgb, var(--button-accent) 18%, transparent);
+  --background-focused: color-mix(in srgb, var(--button-accent) 10%, transparent);
+  --color: var(--button-accent);
+  --border-color: var(--button-accent);
+  --border-width: 1px;
+  --border-style: solid;
+  --box-shadow: none;
+}
+
+ion-button.button-fill-clear {
+  --background: transparent;
+  --background-hover: color-mix(in srgb, var(--button-accent) 12%, transparent);
+  --background-hover-opacity: 1;
+  --background-activated: color-mix(in srgb, var(--button-accent) 18%, transparent);
+  --background-activated-opacity: 1;
+  --background-focused: color-mix(in srgb, var(--button-accent) 12%, transparent);
+  --background-focused-opacity: 1;
+  --color: var(--button-accent);
+  --box-shadow: none;
+}

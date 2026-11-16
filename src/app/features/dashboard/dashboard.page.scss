@@ -4,6 +4,10 @@
   gap: 1rem;
 }
 
+.dashboard-cards app-card-layout {
+  --card-background: var(--app-color-neutral-900);
+}
+
 .dashboard-card-value {
   margin: 0 0 0.25rem;
   font-size: 2rem;

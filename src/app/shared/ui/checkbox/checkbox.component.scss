@@ -1,0 +1,26 @@
+:host {
+  display: block;
+}
+
+ion-checkbox {
+  --checkbox-accent: var(--app-color-mint);
+  --color: var(--app-color-neutral-0);
+  --border-color: var(--app-color-neutral-800);
+  --checkbox-background: transparent;
+  --checkbox-background-checked: var(--checkbox-accent);
+  --border-color-checked: var(--checkbox-accent);
+  --checkmark-color: var(--app-color-neutral-950);
+  font-size: 0.875rem;
+}
+
+ion-checkbox.checkbox-amber {
+  --checkbox-accent: var(--app-color-amber);
+}
+
+ion-checkbox.checkbox-rose {
+  --checkbox-accent: var(--app-color-rose);
+}
+
+ion-checkbox.checkbox-sky {
+  --checkbox-accent: var(--app-color-sky);
+}

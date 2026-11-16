@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TrainingsApi } from '../../core/api/trainings/trainings-api';
 import { PageLayoutComponent } from '../../shared/layouts/page-layout/page-layout.component';
+import { ListLayoutComponent } from '../../shared/layouts/list-layout/list-layout.component';
 import { AsyncPipe } from '@angular/common';
 import {
   IonFab,
@@ -9,8 +10,6 @@ import {
   IonIcon,
   IonItem,
   IonLabel,
-  IonList,
-  IonRouterLink,
 } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { add, chevronForwardOutline } from 'ionicons/icons';
@@ -22,14 +21,13 @@ import { SearchComponent } from '../../shared/ui/search/search.component';
   styleUrls: ['trainings.page.scss'],
   imports: [
     PageLayoutComponent,
+    ListLayoutComponent,
     AsyncPipe,
     SearchComponent,
     RouterLink,
-    IonRouterLink,
     IonFab,
     IonFabButton,
     IonIcon,
-    IonList,
     IonItem,
     IonLabel,
   ],

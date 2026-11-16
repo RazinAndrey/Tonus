@@ -5,10 +5,40 @@
 ion-input {
   --color: var(--app-color-neutral-0);
   --highlight-color-focused: var(--app-color-mint);
+  --highlight-color-valid: var(--app-color-mint);
+  --highlight-color-invalid: var(--app-color-red);
+}
+
+.password-toggle {
+  --color: var(--app-color-mint);
+  --background-hover: color-mix(in srgb, var(--app-color-mint) 12%, transparent);
+  --background-hover-opacity: 1;
+  --background-activated: color-mix(in srgb, var(--app-color-mint) 18%, transparent);
+  --background-activated-opacity: 1;
+  --background-focused: color-mix(in srgb, var(--app-color-mint) 12%, transparent);
+  --background-focused-opacity: 1;
+  --ripple-color: var(--app-color-mint);
+  --padding-start: 8px;
+  --padding-end: 8px;
+  margin-inline-end: -8px;
+}
+
+.password-toggle:focus-visible {
+  outline: 2px solid var(--app-color-mint);
+  outline-offset: 1px;
 }
 
 @media (any-hover: hover) {
   ion-input:hover:not(.has-focus) {
-    --border-color: color-mix(in srgb, var(--app-color-mint) 45%, var(--app-color-neutral-800));
+    --border-color: color-mix(in srgb, var(--app-color-mint) 60%, var(--app-color-neutral-800));
   }
+}
+
+ion-input.input-fill-outline[data-invalid] {
+  --highlight-color: var(--app-color-red);
+  --border-color: var(--app-color-red);
+}
+
+:host ::ng-deep ion-input[data-invalid] .input-bottom .helper-text {
+  color: var(--app-color-red);
 }

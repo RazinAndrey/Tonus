@@ -2,7 +2,10 @@
   [type]="type()"
   [disabled]="disabled()"
   [expand]="expand()"
+  [fill]="fill()"
+  [style.height]="size()"
+  [style.min-height]="size()"
   [routerLink]="routerLink()"
-  [class]="'button-' + color()">
+  [class]="'button-' + color() + ' button-fill-' + fill()">
   <ng-content />
 </ion-button>
