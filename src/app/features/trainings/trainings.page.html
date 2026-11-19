@@ -5,7 +5,7 @@
     <app-list-layout class="trainings-list">
       @for (training of trainings; track training.id; let isLast = $last) {
         <ion-item [lines]="isLast ? 'none' : 'full'">
-          <ion-label>
+          <ion-label class="app-text-truncate">
             <h2>{{ training.title }}</h2>
             <p>{{ training.short_description }}</p>
           </ion-label>

@@ -30,15 +30,13 @@ ion-list {
 }
 
 .profile-name {
+  margin: 0;
   color: var(--app-color-neutral-0);
-  font-size: 0.875rem;
-  font-weight: 600;
 }
 
 .profile-subtitle {
+  margin: 2px 0 0;
   color: var(--app-color-neutral-500);
-  font-size: 0.75rem;
-  margin-top: 2px;
 }
 
 ion-item {

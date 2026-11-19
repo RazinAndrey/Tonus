@@ -15,6 +15,6 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardLayoutComponent {
-  readonly title = input.required<string>();
+  readonly title = input('');
   readonly subtitle = input('');
 }

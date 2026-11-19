@@ -1,0 +1,10 @@
+/**
+ * Обрезка текста в одну строку с многоточием.
+ * Используется для вложенных элементов, которые не покрывает .ion-text-nowrap.
+ */
+.app-text-truncate {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

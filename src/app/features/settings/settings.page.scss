@@ -1,1 +1,17 @@
+.settings-section {
+  margin-top: 1rem;
+}
 
+ion-list-header {
+  color: var(--app-color-neutral-500);
+}
+
+ion-radio {
+  --color: var(--app-color-neutral-500);
+  --color-checked: var(--app-color-mint);
+}
+
+.settings-value {
+  color: var(--app-color-neutral-500);
+  font-size: 0.875rem;
+}

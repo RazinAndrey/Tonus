@@ -1,0 +1,30 @@
+@if (email() || phone() || about()) {
+  <app-list-layout class="profile-info" [interactive]="false">
+    @if (email()) {
+      <ion-item class="profile-info__row">
+        <ion-label class="profile-info__content">
+          <ion-note class="profile-info__label">Почта</ion-note>
+          <span class="profile-info__value app-text-truncate">{{ email() }}</span>
+        </ion-label>
+      </ion-item>
+    }
+
+    @if (phone()) {
+      <ion-item class="profile-info__row">
+        <ion-label class="profile-info__content">
+          <ion-note class="profile-info__label">Телефон</ion-note>
+          <span class="profile-info__value app-text-truncate">{{ phone() }}</span>
+        </ion-label>
+      </ion-item>
+    }
+
+    @if (about()) {
+      <ion-item class="profile-info__row">
+        <ion-label class="profile-info__content profile-info__content--stacked">
+          <ion-note class="profile-info__label">О себе</ion-note>
+          <span class="profile-info__value profile-info__value--stacked">{{ about() }}</span>
+        </ion-label>
+      </ion-item>
+    }
+  </app-list-layout>
+}
