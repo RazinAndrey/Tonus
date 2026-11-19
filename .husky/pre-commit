@@ -1,2 +1,17 @@
 git diff --cached --check
+
+# Angular CLI требует Node из .nvmrc, а git-хуки запускаются в неинтерактивном
+# shell, где nvm не инициализирован. Подставляем нужную версию в PATH вручную.
+if [ -f .nvmrc ] && [ -d "$HOME/.nvm/versions/node" ]; then
+  node_version="$(cat .nvmrc)"
+  node_bin="$HOME/.nvm/versions/node/v$node_version/bin"
+  if [ -d "$node_bin" ]; then
+    PATH="$node_bin:$PATH"
+    export PATH
+  else
+    echo "Node v$node_version из .nvmrc не найден ($node_bin). Выполни: nvm install" >&2
+    exit 1
+  fi
+fi
+
 npm run lint
