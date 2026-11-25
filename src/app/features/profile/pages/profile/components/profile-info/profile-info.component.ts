@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { IonItem, IonLabel, IonNote } from '@ionic/angular';
-import { ListLayoutComponent } from '../../../shared/layouts/list-layout/list-layout.component';
+import { ListLayoutComponent } from '../../../../../../shared/layouts/list-layout/list-layout.component';
 
 @Component({
   selector: 'app-profile-info',

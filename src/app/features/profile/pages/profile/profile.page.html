@@ -1,0 +1,16 @@
+<app-page-layout>
+  @if (profileService.loading()) {
+    <p>Загрузка профиля...</p>
+  } @else if (profileService.error()) {
+    <p>Не удалось загрузить профиль.</p>
+  } @else if (profileService.profile(); as profile) {
+    <section class="profile">
+      <app-profile-hero [name]="profile.name" [level]="profile.level ?? ''" />
+      <app-profile-info
+        [email]="profile.email"
+        [phone]="profile.phone ?? ''"
+        [about]="profile.about ?? ''" />
+      <app-actions-profile />
+    </section>
+  }
+</app-page-layout>

@@ -61,7 +61,8 @@ export const routes: Routes = [
       {
         path: 'profile',
         title: 'Профиль',
-        loadComponent: () => import('./features/profile/profile.page').then((m) => m.ProfilePage),
+        loadChildren: () =>
+          import('./features/profile/profile.routes').then((m) => m.PROFILE_ROUTES),
       },
       {
         path: '',

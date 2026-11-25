@@ -1,0 +1,36 @@
+<app-page-layout>
+  @if (profileService.loading() && !ready()) {
+    <p>Загрузка профиля...</p>
+  } @else if (!ready()) {
+    <p>Не удалось загрузить профиль.</p>
+  } @else {
+    <section class="profile-form-page">
+      <h1>Редактирование профиля</h1>
+      <form class="profile-form" (submit)="onSubmit($event)">
+        <app-input
+          label="Имя"
+          autocomplete="name"
+          [formField]="profileForm.name"
+          [errorText]="nameError()" />
+        <app-input label="Уровень" [formField]="profileForm.level" />
+        <app-input
+          label="Электронная почта"
+          type="email"
+          autocomplete="email"
+          [formField]="profileForm.email"
+          [errorText]="emailError()" />
+        <app-input label="Телефон" type="tel" autocomplete="tel" [formField]="profileForm.phone" />
+        <app-textarea label="О себе" [formField]="profileForm.about" />
+
+        <div class="profile-form__actions">
+          <app-button type="submit" [disabled]="saving() || profileForm().invalid()">
+            {{ saving() ? 'Сохранение...' : 'Сохранить' }}
+          </app-button>
+          <app-button fill="outline" [routerLink]="'/profile'" [disabled]="saving()">
+            Отмена
+          </app-button>
+        </div>
+      </form>
+    </section>
+  }
+</app-page-layout>
