@@ -1,16 +1,19 @@
-<app-page-layout>
-  @if (profileService.loading()) {
-    <p>Загрузка профиля...</p>
-  } @else if (profileService.error()) {
+<app-page-layout title="Профиль" subtitle="Личные данные и настройки аккаунта">
+  @if (loading() && !profile()) {
+    <app-spinner text="Загрузка профиля..." />
+  } @else if (loadError() && !profile()) {
     <p>Не удалось загрузить профиль.</p>
-  } @else if (profileService.profile(); as profile) {
+    <app-button (click)="reload()">Повторить</app-button>
+  }
+
+  @if (profile(); as profile) {
     <section class="profile">
       <app-profile-hero [name]="profile.name" [level]="profile.level ?? ''" />
       <app-profile-info
         [email]="profile.email"
         [phone]="profile.phone ?? ''"
         [about]="profile.about ?? ''" />
-      <app-actions-profile />
+      <app-profile-actions />
     </section>
   }
 </app-page-layout>

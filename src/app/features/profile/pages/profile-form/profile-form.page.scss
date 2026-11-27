@@ -9,6 +9,12 @@
   }
 }
 
+@media (min-width: 768px) {
+  .profile-form-page > h1 {
+    display: none;
+  }
+}
+
 .profile-form {
   display: grid;
   gap: 1rem;

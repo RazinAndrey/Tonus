@@ -58,6 +58,12 @@ ion-menu ion-content {
   min-width: 0;
 }
 
+@media (min-width: 768px) {
+  .main-pane > ion-header {
+    display: none;
+  }
+}
+
 .main-pane ion-router-outlet {
   position: relative;
   flex: 1;

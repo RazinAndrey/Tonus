@@ -3,7 +3,9 @@ import { PageLayoutComponent } from '../../../../shared/layouts/page-layout/page
 import { ProfileService } from '../../services/profile.service';
 import { ProfileHeroComponent } from './components/profile-hero/profile-hero.component';
 import { ProfileInfoComponent } from './components/profile-info/profile-info.component';
-import { ActionsProfileComponent } from './components/actions-profile/actions-profile.component';
+import { ProfileActionsComponent } from './components/profile-actions/profile-actions.component';
+import { ButtonComponent } from '../../../../shared/ui/button/button.component';
+import { SpinnerComponent } from '../../../../shared/ui/spinner/spinner.component';
 
 @Component({
   selector: 'app-profile',
@@ -13,14 +15,26 @@ import { ActionsProfileComponent } from './components/actions-profile/actions-pr
     PageLayoutComponent,
     ProfileHeroComponent,
     ProfileInfoComponent,
-    ActionsProfileComponent,
+    ProfileActionsComponent,
+    ButtonComponent,
+    SpinnerComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfilePage implements OnInit {
-  readonly profileService = inject(ProfileService);
+  private readonly profileService = inject(ProfileService);
+
+  protected readonly profile = this.profileService.profile;
+  protected readonly loading = this.profileService.loading;
+  protected readonly loadError = this.profileService.loadError;
 
   ngOnInit(): void {
-    this.profileService.loadProfile();
+    if (!this.profile()) {
+      void this.profileService.loadProfile();
+    }
+  }
+
+  protected reload(): void {
+    void this.profileService.loadProfile();
   }
 }

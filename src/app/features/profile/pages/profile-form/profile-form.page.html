@@ -1,9 +1,10 @@
-<app-page-layout>
-  @if (profileService.loading() && !ready()) {
-    <p>Загрузка профиля...</p>
-  } @else if (!ready()) {
+<app-page-layout title="Редактирование профиля">
+  @if (loading() && !profile()) {
+    <app-spinner text="Загрузка профиля..." />
+  } @else if (loadError() && !profile()) {
     <p>Не удалось загрузить профиль.</p>
-  } @else {
+    <app-button (click)="reload()">Повторить</app-button>
+  } @else if (profile()) {
     <section class="profile-form-page">
       <h1>Редактирование профиля</h1>
       <form class="profile-form" (submit)="onSubmit($event)">
@@ -23,10 +24,10 @@
         <app-textarea label="О себе" [formField]="profileForm.about" />
 
         <div class="profile-form__actions">
-          <app-button type="submit" [disabled]="saving() || profileForm().invalid()">
-            {{ saving() ? 'Сохранение...' : 'Сохранить' }}
+          <app-button type="submit" [disabled]="profileForm().submitting() || profileForm().invalid()">
+            {{ profileForm().submitting() ? 'Сохранение...' : 'Сохранить' }}
           </app-button>
-          <app-button fill="outline" [routerLink]="'/profile'" [disabled]="saving()">
+          <app-button fill="outline" [routerLink]="'/profile'" [disabled]="profileForm().submitting()">
             Отмена
           </app-button>
         </div>

@@ -1,6 +1,5 @@
-import { DestroyRef, inject, Injectable, signal } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { finalize, firstValueFrom } from 'rxjs';
+import { inject, Injectable, signal } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
 import { ProfileApi } from '../data-access/profile-api';
 import { Profile } from '../models/profile.model';
 
@@ -8,40 +7,33 @@ import { Profile } from '../models/profile.model';
   providedIn: 'root',
 })
 export class ProfileService {
-  private api = inject(ProfileApi);
-  private destroyRef = inject(DestroyRef);
+  private readonly api = inject(ProfileApi);
 
-  readonly profile = signal<Profile | null>(null);
-  readonly loading = signal<boolean>(false);
-  readonly error = signal<unknown | null>(null);
+  private readonly _profile = signal<Profile | null>(null);
+  private readonly _loading = signal(false);
+  private readonly _loadError = signal<unknown | null>(null);
 
-  loadProfile(): void {
-    this.loading.set(true);
-    this.error.set(null);
+  readonly profile = this._profile.asReadonly();
+  readonly loading = this._loading.asReadonly();
+  readonly loadError = this._loadError.asReadonly();
 
-    this.api
-      .getProfile()
-      .pipe(
-        takeUntilDestroyed(this.destroyRef),
-        finalize(() => this.loading.set(false)),
-      )
-      .subscribe({
-        next: (profile) => this.profile.set(profile),
-        error: (error) => this.error.set(error),
-      });
+  async loadProfile(): Promise<void> {
+    if (this._loading()) return;
+
+    this._loading.set(true);
+    this._loadError.set(null);
+
+    try {
+      this._profile.set(await firstValueFrom(this.api.getProfile()));
+    } catch (error) {
+      this._loadError.set(error);
+    } finally {
+      this._loading.set(false);
+    }
   }
 
   async updateProfile(data: Partial<Profile>): Promise<void> {
-    this.error.set(null);
-
-    try {
-      const profile = await firstValueFrom(
-        this.api.updateProfile(data).pipe(takeUntilDestroyed(this.destroyRef)),
-      );
-      this.profile.set(profile);
-    } catch (error) {
-      this.error.set(error);
-      throw error;
-    }
+    const profile = await firstValueFrom(this.api.updateProfile(data));
+    this._profile.set(profile);
   }
 }

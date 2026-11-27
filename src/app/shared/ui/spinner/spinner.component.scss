@@ -1,0 +1,28 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--app-color-neutral-500);
+}
+
+:host(.spinner-amber) {
+  color: var(--app-color-amber);
+}
+
+:host(.spinner-mint) {
+  color: var(--app-color-mint);
+}
+
+:host(.spinner-rose) {
+  color: var(--app-color-rose);
+}
+
+:host(.spinner-sky) {
+  color: var(--app-color-sky);
+}
+
+ion-spinner {
+  --color: currentColor;
+  width: 1.25rem;
+  height: 1.25rem;
+}

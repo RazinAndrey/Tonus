@@ -1,3 +1,16 @@
-<ion-content [fullscreen]="true" class="ion-padding">
+<ng-content select="[page-toolbar]"></ng-content>
+<ion-content
+  [fullscreen]="fullscreen()"
+  [scrollEvents]="true"
+  (ionScroll)="scrolled.set($event.detail.scrollTop > 0)"
+  class="ion-padding">
+  @if (title()) {
+    <header class="desktop-page-heading">
+      <h1>{{ title() }}</h1>
+      @if (subtitle()) {
+        <p>{{ subtitle() }}</p>
+      }
+    </header>
+  }
   <ng-content></ng-content>
 </ion-content>

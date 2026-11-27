@@ -1,5 +1,11 @@
-<app-page-layout>
-  <app-search />
+<app-page-layout [fullscreen]="false">
+  <div page-toolbar class="trainings-toolbar">
+    <div class="trainings-heading">
+      <h1>Тренировки</h1>
+      <p>История и прогресс занятий</p>
+    </div>
+    <app-search />
+  </div>
 
   @if (trainings$ | async; as trainings) {
     <app-list-layout class="trainings-list">
