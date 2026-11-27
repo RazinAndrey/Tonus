@@ -1,9 +1,5 @@
-<app-page-layout [fullscreen]="false">
+<app-page-layout>
   <div page-toolbar class="trainings-toolbar">
-    <div class="trainings-heading">
-      <h1>Тренировки</h1>
-      <p>История и прогресс занятий</p>
-    </div>
     <app-search />
   </div>
 
@@ -22,7 +18,7 @@
   }
 
   <ion-fab slot="fixed">
-    <ion-fab-button routerLink="/trainings/training-form" aria-label="Создать тренировку">
+    <ion-fab-button routerLink="/trainings/training-form" [attr.aria-label]="'training.create' | t">
       <ion-icon name="add" aria-hidden="true" />
     </ion-fab-button>
   </ion-fab>

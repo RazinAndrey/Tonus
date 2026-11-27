@@ -1,13 +1,14 @@
 import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
 import { form } from '@angular/forms/signals';
 import { PageLayoutComponent } from '../../../shared/layouts/page-layout/page-layout.component';
+import { TranslatePipe } from '../../../core/i18n/translate.pipe';
 import { TrainingData } from '../../../core/models/training.model';
 
 @Component({
   selector: 'app-training-form',
   templateUrl: './training-form.component.html',
   styleUrls: ['./training-form.component.scss'],
-  imports: [PageLayoutComponent],
+  imports: [PageLayoutComponent, TranslatePipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TrainingFormComponent {

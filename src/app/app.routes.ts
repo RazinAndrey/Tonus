@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: 'login',
-    title: 'Вход',
+    data: { titleKey: 'page.login' },
     loadComponent: () => import('./features/auth/login.page').then((m) => m.LoginPage),
   },
   {
@@ -15,19 +15,19 @@ export const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        title: 'Дашборд',
+        data: { titleKey: 'nav.dashboard', subtitleKey: 'page.dashboardSubtitle' },
         loadComponent: () =>
           import('./features/dashboard/dashboard.page').then((m) => m.DashboardPage),
       },
       {
         path: 'trainings',
-        title: 'Тренировки',
+        data: { titleKey: 'nav.trainings', subtitleKey: 'page.trainingsSubtitle' },
         loadComponent: () =>
           import('./features/trainings/trainings.page').then((m) => m.TrainingsPage),
       },
       {
         path: 'trainings/training-form',
-        title: 'Создание тренировки',
+        data: { titleKey: 'page.createTraining' },
         loadComponent: () =>
           import('./features/trainings/training-form/training-form.component').then(
             (c) => c.TrainingFormComponent,
@@ -35,7 +35,7 @@ export const routes: Routes = [
       },
       {
         path: 'trainings/training-form/:conferenceId',
-        title: 'Редактирование тренировки',
+        data: { titleKey: 'page.editTraining' },
         loadComponent: () =>
           import('./features/trainings/training-form/training-form.component').then(
             (c) => c.TrainingFormComponent,
@@ -43,24 +43,23 @@ export const routes: Routes = [
       },
       {
         path: 'calendar',
-        title: 'Календарь',
+        data: { titleKey: 'nav.calendar', subtitleKey: 'page.calendarSubtitle' },
         loadComponent: () =>
           import('./features/calendar/calendar.page').then((m) => m.CalendarPage),
       },
       {
         path: 'users',
-        title: 'Пользователи',
+        data: { titleKey: 'nav.users' },
         loadComponent: () => import('./features/users/users.page').then((m) => m.UsersPage),
       },
       {
         path: 'settings',
-        title: 'Настройки',
+        data: { titleKey: 'nav.settings', subtitleKey: 'page.settingsSubtitle' },
         loadComponent: () =>
           import('./features/settings/settings.page').then((m) => m.SettingsPage),
       },
       {
         path: 'profile',
-        title: 'Профиль',
         loadChildren: () =>
           import('./features/profile/profile.routes').then((m) => m.PROFILE_ROUTES),
       },

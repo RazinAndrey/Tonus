@@ -1,18 +1,18 @@
-<app-page-layout title="Дашборд" subtitle="Ваши тренировки и активность за неделю">
+<app-page-layout>
   <div class="dashboard-cards">
-    <app-card-layout title="Тренировки" subtitle="Демо-данные за неделю">
+    <app-card-layout [title]="'nav.trainings' | t" [subtitle]="'dashboard.weekDemo' | t">
       <p class="dashboard-card-value">3</p>
-      <p class="dashboard-card-caption">проведено тренировок</p>
+      <p class="dashboard-card-caption">{{ 'dashboard.completedTrainings' | t }}</p>
     </app-card-layout>
 
-    <app-card-layout title="Время занятий" subtitle="Демо-данные за неделю">
-      <p class="dashboard-card-value">4 ч 20 мин</p>
-      <p class="dashboard-card-caption">общее время тренировок</p>
+    <app-card-layout [title]="'dashboard.trainingTime' | t" [subtitle]="'dashboard.weekDemo' | t">
+      <p class="dashboard-card-value">{{ 'dashboard.duration' | t }}</p>
+      <p class="dashboard-card-caption">{{ 'dashboard.totalTime' | t }}</p>
     </app-card-layout>
 
-    <app-card-layout title="Активные дни" subtitle="Демо-данные за неделю">
+    <app-card-layout [title]="'dashboard.activeDays' | t" [subtitle]="'dashboard.weekDemo' | t">
       <p class="dashboard-card-value">5</p>
-      <p class="dashboard-card-caption">дней с активностью</p>
+      <p class="dashboard-card-caption">{{ 'dashboard.activeDaysCaption' | t }}</p>
     </app-card-layout>
   </div>
 </app-page-layout>

@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, forwardRef, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, signal } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IonSelect, IonSelectOption } from '@ionic/angular';
+import { LanguageService } from '../../../core/services/language.service';
 
 export type SelectValue = string | number;
 
@@ -25,9 +26,10 @@ export interface SelectOption {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectComponent implements ControlValueAccessor {
+  protected readonly languageService = inject(LanguageService);
   readonly label = input.required<string>();
   readonly options = input.required<readonly SelectOption[]>();
-  readonly placeholder = input('Выберите значение');
+  readonly placeholder = input<string>();
   protected readonly value = signal<SelectValue | null>(null);
   protected readonly disabled = signal(false);
 

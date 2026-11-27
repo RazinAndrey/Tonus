@@ -11,15 +11,19 @@ import {
   SecurityContext,
   ViewChild,
   ViewEncapsulation,
+  effect,
   inject,
 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import EasyMDE from 'easymde';
+import { TranslatePipe } from '../../../core/i18n/translate.pipe';
+import { LanguageService } from '../../../core/services/language.service';
 
 @Component({
   selector: 'app-markdown-editor',
   templateUrl: './markdown-editor.component.html',
   styleUrls: ['./markdown-editor.component.scss'],
+  imports: [TranslatePipe],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -29,13 +33,21 @@ export class MarkdownEditorComponent implements AfterViewInit, OnChanges, OnDest
   @ViewChild('textarea', { static: true }) private textarea!: ElementRef<HTMLTextAreaElement>;
 
   private readonly sanitizer = inject(DomSanitizer);
+  private readonly languageService = inject(LanguageService);
   private editor?: EasyMDE;
+
+  constructor() {
+    effect(() => {
+      const placeholder = this.languageService.translate('editor.placeholder');
+      this.editor?.codemirror.setOption('placeholder', placeholder);
+    });
+  }
 
   ngAfterViewInit(): void {
     const editor = new EasyMDE({
       element: this.textarea.nativeElement,
       initialValue: this.value,
-      placeholder: 'Напишите заметку в Markdown…',
+      placeholder: this.languageService.translate('editor.placeholder'),
       minHeight: '220px',
       autoDownloadFontAwesome: false,
       toolbar: [

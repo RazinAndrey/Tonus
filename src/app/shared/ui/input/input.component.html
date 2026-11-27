@@ -17,7 +17,7 @@
       fill="clear"
       type="button"
       class="password-toggle"
-      [attr.aria-label]="showPassword() ? 'Скрыть пароль' : 'Показать пароль'"
+      [attr.aria-label]="(showPassword() ? 'input.hidePassword' : 'input.showPassword') | t"
       (click)="togglePasswordVisibility()">
       <ion-icon slot="icon-only" [name]="showPassword() ? 'eye-off-outline' : 'eye-outline'" />
     </ion-button>

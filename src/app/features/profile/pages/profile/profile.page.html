@@ -1,9 +1,9 @@
-<app-page-layout title="Профиль" subtitle="Личные данные и настройки аккаунта">
+<app-page-layout>
   @if (loading() && !profile()) {
-    <app-spinner text="Загрузка профиля..." />
+    <app-spinner [text]="'profile.loading' | t" />
   } @else if (loadError() && !profile()) {
-    <p>Не удалось загрузить профиль.</p>
-    <app-button (click)="reload()">Повторить</app-button>
+    <p>{{ 'profile.loadFailed' | t }}</p>
+    <app-button (click)="reload()">{{ 'profile.retry' | t }}</app-button>
   }
 
   @if (profile(); as profile) {

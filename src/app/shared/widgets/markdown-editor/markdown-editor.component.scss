@@ -6,7 +6,7 @@ app-markdown-editor {
     flex-wrap: wrap;
     align-items: center;
     background: var(--app-color-neutral-800);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--app-card-border);
     border-radius: 0.5rem 0.5rem 0 0;
 
     button {
@@ -21,14 +21,14 @@ app-markdown-editor {
     }
 
     i.separator {
-      border-color: rgba(255, 255, 255, 0.2);
+      border-color: var(--app-card-border);
     }
   }
 
   .CodeMirror {
     color: var(--app-color-neutral-0);
     background: var(--app-color-neutral-950);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--app-card-border);
     border-radius: 0 0 0.5rem 0.5rem;
   }
 

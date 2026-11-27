@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, forwardRef, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, inject, input, signal } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IonSearchbar } from '@ionic/angular';
+import { LanguageService } from '../../../core/services/language.service';
 
 @Component({
   selector: 'app-search',
@@ -17,7 +18,8 @@ import { IonSearchbar } from '@ionic/angular';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchComponent implements ControlValueAccessor {
-  readonly placeholder = input('Поиск...');
+  protected readonly languageService = inject(LanguageService);
+  readonly placeholder = input<string>();
   protected readonly value = signal('');
 
   private onChange: (value: string) => void = () => {};

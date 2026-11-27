@@ -3,6 +3,7 @@
   flex-direction: column;
   flex: 1;
   min-height: 0;
+  background: var(--app-color-neutral-950);
 }
 
 ion-content {
@@ -13,31 +14,11 @@ ion-content {
   --padding-top: var(--page-content-padding-top, 16px);
 }
 
-.desktop-page-heading {
-  display: none;
-}
-
 @media (min-width: 768px) {
   ion-content {
     --padding-start: 24px;
     --padding-end: 24px;
-    --padding-top: var(--page-content-padding-top, 32px);
+    --padding-top: var(--page-content-padding-top, 0px);
   }
 
-  .desktop-page-heading {
-    display: block;
-    margin-bottom: 28px;
-
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    p {
-      margin: 8px 0 0;
-      color: var(--app-color-neutral-500);
-    }
-  }
 }

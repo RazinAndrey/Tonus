@@ -14,6 +14,7 @@ import {
 } from '@ionic/angular';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
+import { TranslatePipe } from '../../../core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-main-layout',
@@ -29,6 +30,7 @@ import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
     IonRouterOutlet,
     PageHeaderComponent,
     SidebarMenuComponent,
+    TranslatePipe,
   ],
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss'],

@@ -3,7 +3,7 @@
     @if (email()) {
       <ion-item class="profile-info__row">
         <ion-label class="profile-info__content">
-          <ion-note class="profile-info__label">Почта</ion-note>
+          <ion-note class="profile-info__label">{{ 'profile.email' | t }}</ion-note>
           <span class="profile-info__value">{{ email() }}</span>
         </ion-label>
       </ion-item>
@@ -12,7 +12,7 @@
     @if (phone()) {
       <ion-item class="profile-info__row">
         <ion-label class="profile-info__content">
-          <ion-note class="profile-info__label">Телефон</ion-note>
+          <ion-note class="profile-info__label">{{ 'profile.phone' | t }}</ion-note>
           <span class="profile-info__value">{{ phone() }}</span>
         </ion-label>
       </ion-item>
@@ -21,7 +21,7 @@
     @if (about()) {
       <ion-item class="profile-info__row">
         <ion-label class="profile-info__content">
-          <ion-note class="profile-info__label">О себе</ion-note>
+          <ion-note class="profile-info__label">{{ 'profile.about' | t }}</ion-note>
           <span class="profile-info__value">{{ about() }}</span>
         </ion-label>
       </ion-item>

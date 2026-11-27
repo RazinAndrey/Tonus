@@ -6,6 +6,7 @@ import { ProfileInfoComponent } from './components/profile-info/profile-info.com
 import { ProfileActionsComponent } from './components/profile-actions/profile-actions.component';
 import { ButtonComponent } from '../../../../shared/ui/button/button.component';
 import { SpinnerComponent } from '../../../../shared/ui/spinner/spinner.component';
+import { TranslatePipe } from '../../../../core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-profile',
@@ -18,6 +19,7 @@ import { SpinnerComponent } from '../../../../shared/ui/spinner/spinner.componen
     ProfileActionsComponent,
     ButtonComponent,
     SpinnerComponent,
+    TranslatePipe,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

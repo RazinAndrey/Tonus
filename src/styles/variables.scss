@@ -2,18 +2,53 @@
 // https://ionicframework.com/docs/theming/
 
 :root {
+  color-scheme: dark;
+
   --app-color-neutral-0: #fff;
   --app-color-neutral-500: #87888c;
   --app-color-neutral-800: #2c2d33;
   --app-color-neutral-900: #21222d;
   --app-color-neutral-950: #171821;
+  --app-surface-rgb: 33, 34, 45;
 
   --app-card-background: transparent;
   --app-card-border: rgba(255, 255, 255, 0.12);
 
   --app-color-amber: #feb95a;
   --app-color-mint: #a9dfd8;
+  --app-color-mint-rgb: 169, 223, 216;
   --app-color-rose: #f2c8ed;
   --app-color-red: #f28b82;
   --app-color-sky: #20aef3;
+
+  --ion-background-color: var(--app-color-neutral-950);
+  --ion-text-color: var(--app-color-neutral-0);
+  --ion-item-background: var(--app-color-neutral-900);
+  --ion-toolbar-background: var(--app-color-neutral-900);
+  --ion-card-background: var(--app-color-neutral-900);
+  --ion-color-primary: var(--app-color-mint);
+  --ion-color-primary-rgb: var(--app-color-mint-rgb);
+  --ion-color-primary-contrast: var(--app-color-neutral-950);
+  --ion-color-primary-shade: color-mix(in srgb, var(--app-color-mint) 85%, black);
+  --ion-color-primary-tint: color-mix(in srgb, var(--app-color-mint) 85%, white);
+}
+
+:root.app-theme-light {
+  color-scheme: light;
+
+  --app-color-neutral-0: #202631;
+  --app-color-neutral-500: #61707d;
+  --app-color-neutral-800: #d9e0e5;
+  --app-color-neutral-900: #fff;
+  --app-color-neutral-950: #f4f6f8;
+  --app-surface-rgb: 255, 255, 255;
+
+  --app-card-border: rgba(28, 40, 52, 0.14);
+
+  --app-color-amber: #91620c;
+  --app-color-mint: #237b74;
+  --app-color-mint-rgb: 35, 123, 116;
+  --app-color-rose: #8f4f89;
+  --app-color-red: #b23b36;
+  --app-color-sky: #0b6d9b;
 }

@@ -8,10 +8,6 @@ app-page-layout {
   background: var(--app-color-neutral-950);
 }
 
-.trainings-heading {
-  display: none;
-}
-
 .trainings-list {
   margin-bottom: 4rem;
 }
@@ -28,24 +24,7 @@ ion-fab {
 
 @media (min-width: 768px) {
   .trainings-toolbar {
-    padding: 32px 24px 0;
-  }
-
-  .trainings-heading {
-    display: block;
-    margin-bottom: 28px;
-
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    p {
-      margin: 8px 0 0;
-      color: var(--app-color-neutral-500);
-    }
+    padding: 0 24px 8px;
   }
 
   ion-fab {

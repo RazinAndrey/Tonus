@@ -4,7 +4,7 @@
   fill="outline"
   mode="md"
   interface="popover"
-  [placeholder]="placeholder()"
+  [placeholder]="placeholder() ?? languageService.translate('select.placeholder')"
   [value]="value()"
   [disabled]="disabled()"
   (ionChange)="onSelect($event.detail.value)"

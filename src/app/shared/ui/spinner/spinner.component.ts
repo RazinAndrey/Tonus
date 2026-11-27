@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { IonSpinner } from '@ionic/angular';
+import { LanguageService } from '../../../core/services/language.service';
 
 @Component({
   selector: 'app-spinner',
@@ -10,6 +11,7 @@ import { IonSpinner } from '@ionic/angular';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SpinnerComponent {
-  readonly text = input('Загрузка...');
+  protected readonly languageService = inject(LanguageService);
+  readonly text = input<string>();
   readonly color = input<'neutral' | 'amber' | 'mint' | 'rose' | 'sky'>('neutral');
 }

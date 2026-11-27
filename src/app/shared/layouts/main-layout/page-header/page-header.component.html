@@ -2,12 +2,20 @@
   <ion-buttons slot="start">
     <ion-menu-button></ion-menu-button>
   </ion-buttons>
-  <ion-title class="page-title">{{ pageTitle$ | async }}</ion-title>
+  <ion-title class="page-title">{{ pageInfo().title }}</ion-title>
   <ion-buttons slot="end">
-    <ion-button class="profile-button" fill="clear" routerLink="/profile" aria-label="Профиль">
+    <ion-button class="profile-button" fill="clear" routerLink="/profile" [attr.aria-label]="'nav.profile' | t">
       <ion-avatar class="header-avatar">
         <img alt="" src="assets/icons/profile.svg" />
       </ion-avatar>
     </ion-button>
   </ion-buttons>
 </ion-toolbar>
+@if (pageInfo().title) {
+  <div class="desktop-page-heading">
+    <h1>{{ pageInfo().title }}</h1>
+    @if (pageInfo().subtitle) {
+      <p>{{ pageInfo().subtitle }}</p>
+    }
+  </div>
+}

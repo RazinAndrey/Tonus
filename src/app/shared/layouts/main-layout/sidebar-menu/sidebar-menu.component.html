@@ -3,7 +3,7 @@
     <ion-menu-toggle [autoHide]="false">
       <ion-item lines="none" [routerLink]="link.url" routerDirection="root" routerLinkActive="active">
         <ion-icon [name]="link.icon" slot="start" aria-hidden="true"></ion-icon>
-        <ion-label>{{ link.label }}</ion-label>
+        <ion-label>{{ link.labelKey | t }}</ion-label>
       </ion-item>
     </ion-menu-toggle>
   }

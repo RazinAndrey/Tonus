@@ -1,7 +1,7 @@
 <ion-searchbar
   mode="md"
-  aria-label="Поиск"
-  [placeholder]="placeholder()"
+  [attr.aria-label]="languageService.translate('search.label')"
+  [placeholder]="placeholder() ?? languageService.translate('search.placeholder')"
   [value]="value()"
   (ionInput)="onInput($event.detail.value)"
   (ionBlur)="onBlur()" />

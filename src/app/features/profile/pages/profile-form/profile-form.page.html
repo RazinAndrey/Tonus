@@ -1,34 +1,34 @@
-<app-page-layout title="Редактирование профиля">
+<app-page-layout>
   @if (loading() && !profile()) {
-    <app-spinner text="Загрузка профиля..." />
+    <app-spinner [text]="'profile.loading' | t" />
   } @else if (loadError() && !profile()) {
-    <p>Не удалось загрузить профиль.</p>
-    <app-button (click)="reload()">Повторить</app-button>
+    <p>{{ 'profile.loadFailed' | t }}</p>
+    <app-button (click)="reload()">{{ 'profile.retry' | t }}</app-button>
   } @else if (profile()) {
     <section class="profile-form-page">
-      <h1>Редактирование профиля</h1>
+      <h1>{{ 'page.editProfile' | t }}</h1>
       <form class="profile-form" (submit)="onSubmit($event)">
         <app-input
-          label="Имя"
+          [label]="'profile.name' | t"
           autocomplete="name"
           [formField]="profileForm.name"
           [errorText]="nameError()" />
-        <app-input label="Уровень" [formField]="profileForm.level" />
+        <app-input [label]="'profile.level' | t" [formField]="profileForm.level" />
         <app-input
-          label="Электронная почта"
+          [label]="'profile.emailAddress' | t"
           type="email"
           autocomplete="email"
           [formField]="profileForm.email"
           [errorText]="emailError()" />
-        <app-input label="Телефон" type="tel" autocomplete="tel" [formField]="profileForm.phone" />
-        <app-textarea label="О себе" [formField]="profileForm.about" />
+        <app-input [label]="'profile.phone' | t" type="tel" autocomplete="tel" [formField]="profileForm.phone" />
+        <app-textarea [label]="'profile.about' | t" [formField]="profileForm.about" />
 
         <div class="profile-form__actions">
           <app-button type="submit" [disabled]="profileForm().submitting() || profileForm().invalid()">
-            {{ profileForm().submitting() ? 'Сохранение...' : 'Сохранить' }}
+            {{ (profileForm().submitting() ? 'profile.saving' : 'profile.save') | t }}
           </app-button>
           <app-button fill="outline" [routerLink]="'/profile'" [disabled]="profileForm().submitting()">
-            Отмена
+            {{ 'profile.cancel' | t }}
           </app-button>
         </div>
       </form>

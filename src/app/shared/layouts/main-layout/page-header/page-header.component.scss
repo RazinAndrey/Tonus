@@ -1,10 +1,16 @@
 :host {
   display: block;
+  background: var(--app-color-neutral-950);
+}
+
+.desktop-page-heading {
+  display: none;
 }
 
 ion-toolbar {
   --background: var(--app-color-neutral-900);
   --color: var(--app-color-neutral-0);
+  border-bottom: 1px solid var(--app-color-neutral-800);
 }
 
 .page-title {
@@ -28,11 +34,25 @@ ion-toolbar {
 
 @media (min-width: 768px) {
   ion-toolbar {
-    --padding-top: 1rem;
+    display: none;
   }
 
-  .profile-button {
-    margin-inline-end: 1rem;
+  .desktop-page-heading {
+    display: block;
+    padding: 32px 24px 20px;
+  }
+
+  .desktop-page-heading h1 {
+    margin: 0;
+    font-size: 1.625rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .desktop-page-heading p {
+    margin: 6px 0 0;
+    color: var(--app-color-neutral-500);
+    font-size: 0.875rem;
   }
 }
 

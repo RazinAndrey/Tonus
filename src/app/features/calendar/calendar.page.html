@@ -1,10 +1,10 @@
-<app-page-layout title="Календарь" subtitle="Планируйте занятия по дням">
+<app-page-layout>
   <div class="calendar-preview">
     <ion-datetime
       presentation="date"
       size="cover"
-      locale="ru-RU"
-      [firstDayOfWeek]="1"
+      [locale]="locale()"
+      [firstDayOfWeek]="locale() === 'ru-RU' ? 1 : 0"
       [showAdjacentDays]="true" />
   </div>
 </app-page-layout>

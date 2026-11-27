@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TrainingsApi } from '../../core/api/trainings/trainings-api';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { PageLayoutComponent } from '../../shared/layouts/page-layout/page-layout.component';
 import { ListLayoutComponent } from '../../shared/layouts/list-layout/list-layout.component';
 import { AsyncPipe } from '@angular/common';
@@ -30,6 +31,7 @@ import { SearchComponent } from '../../shared/ui/search/search.component';
     IonIcon,
     IonItem,
     IonLabel,
+    TranslatePipe,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

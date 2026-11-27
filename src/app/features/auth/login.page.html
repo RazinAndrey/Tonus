@@ -3,29 +3,29 @@
     <div class="login-brand">
       <ion-icon name="trophy" class="login-logo" aria-hidden="true" />
       <h1 class="login-title">Tonus</h1>
-      <p class="login-subtitle">Спортивное приложение</p>
+      <p class="login-subtitle">{{ 'brand.subtitle' | t }}</p>
     </div>
 
-    <app-card-layout class="login-card" title="Вход">
+    <app-card-layout class="login-card" [title]="'page.login' | t">
       <form (submit)="onSubmit($event)" class="login-form">
         <app-input
-          label="Электронная почта"
+          [label]="'profile.emailAddress' | t"
           type="email"
           autocomplete="email"
           [formField]="loginForm.email"
           [errorText]="emailError()" />
 
         <app-input
-          label="Пароль"
+          [label]="'login.password' | t"
           type="password"
           autocomplete="current-password"
           [formField]="loginForm.password"
           [errorText]="passwordError()" />
 
-        <app-checkbox label="Запомнить меня" color="mint" [formField]="loginForm.rememberMe" />
+        <app-checkbox [label]="'login.rememberMe' | t" color="mint" [formField]="loginForm.rememberMe" />
 
         <app-button type="submit" expand="block" [disabled]="loginForm().invalid()">
-          Войти
+          {{ 'login.submit' | t }}
         </app-button>
       </form>
     </app-card-layout>

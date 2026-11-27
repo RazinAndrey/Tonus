@@ -8,10 +8,10 @@
 
 ion-datetime {
   --background: var(--app-color-neutral-900);
-  --background-rgb: 33, 34, 45;
+  --background-rgb: var(--app-surface-rgb);
   --title-color: var(--app-color-neutral-0);
   --ion-color-primary: var(--app-color-mint);
-  --ion-color-primary-rgb: 169, 223, 216;
+  --ion-color-primary-rgb: var(--app-color-mint-rgb);
   --ion-color-primary-contrast: var(--app-color-neutral-950);
   --ion-color-step-500: var(--app-color-neutral-500);
   --ion-color-step-650: var(--app-color-neutral-0);

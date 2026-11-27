@@ -10,12 +10,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { addIcons } from 'ionicons';
 import { eyeOffOutline, eyeOutline } from 'ionicons/icons';
 import { IonButton, IonIcon, IonInput } from '@ionic/angular';
+import { TranslatePipe } from '../../../core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
-  imports: [IonButton, IonIcon, IonInput],
+  imports: [IonButton, IonIcon, IonInput, TranslatePipe],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
